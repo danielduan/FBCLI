@@ -78,6 +78,14 @@ function error(command, parameter) {
 	case "logout":
 		return "You are already logged out.";
 		break;
+	case "man":
+		manhelp = "Try 'man --help' for more information";
+		if (parameter == "") {
+			return "man: invalid option. Requires User_Id. </br>" + manhelp;
+		} else {
+			return "man: invalid argument: " + parameter + "</br>" + manhelp;
+		}
+		break;
 	default:
 		return "-fbcli: " + command + ": command not found";
 	}
@@ -110,6 +118,9 @@ function help(command) {
 	case "logout":
 		return whatis("logout") + "</br>" + "Usage: logout";
 		break;
+	case "man":
+		return whatis("man") + "</br>" + "Usage: man USER_ID";
+		break;
 	default:
 		return error(command,"");
 	}
@@ -129,7 +140,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + whatis("logout") + "</br>" + whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo") + "</br>" + whatis("wall");
+	message = help("login") + "</br>" + whatis("logout") + "</br>" + whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo") + "</br>" + whatis("wall") + "</br>" + whatis("man");
 	return message +  "</br> Use the --help flag with any of those commands to learn more.";
 }
 
@@ -158,6 +169,9 @@ function whatis(command) {
 		break;
 	case "find":
 		return "find (1)\t\t- search for friends based on query";
+		break;
+	case "man":
+		return "man (1)\t\t- display information about your friends";
 		break;
 	case "login":
 		return "login (1)\t\t- connect to facebook, no GUI required";
@@ -206,6 +220,20 @@ function echo(message) {
 		postStatus(message[0]);
 	}
 	return "";
+}
+
+function man(string_id) {
+	if (string_id.length == 0) {
+		return error("man","");
+	} else if (string_id.length == 1) {
+		intform = parseInt(string_id[0]);
+		if (intform != NaN) {
+			getUserInfo(intform);
+			return "";
+		} else {
+			return error("man", string_id[0]);
+		}
+	}
 }
 
 function find(search) {
@@ -262,6 +290,8 @@ function parse_input(input) {
 			return "=^..^=  meow";
 		} else if (input_arr[0] == "wall") {
 			return wall("");
+		} else if (input_arr[0] == "man") {
+			return man(new Array());
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -287,6 +317,10 @@ function parse_input(input) {
 			return "Invalid logout";
 		} else if (input_arr[0] == "wall") {
 			return wall(input_arr[1]);
+		} else if (input_arr[0] == "man") {
+			var temp = new Array;
+			temp.push(input_arr[1]);
+			return man(temp);
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -300,7 +334,6 @@ function parse_input(input) {
 			temp.push(input_arr[2]);
 			return echo(temp);
 		}
-		break;
 	default:
 		if (input_arr[0] == "ls") {
 			return ls(input_arr[1] + input_arr[2]);
@@ -328,6 +361,12 @@ function parse_input(input) {
 			return "Invalid logout";
 		} else if (input_arr[0] == "wall") {
 			return error("wall", input_arr[1] + input_arr[2]);
+		} else if (input_arr[0] ==  "man") {
+			var temp = new Array();
+			for (i = 1; i < input_arr_len; i++) {
+				temp.push(input_arr[i]);
+			}
+			return man(temp);
 		} else {
 			return error(input_arr[0], "");
 		}
