@@ -13,12 +13,16 @@ function error(command, parameter) {
 		}
 		break;
 	case "whatis":
-		message = "whatis: invalid option";
-		if (parameter != "") {
-			message = message + " -- '" + parameter + "'";
+		if (parameter[0] == "-") {
+			message = "whatis: invalid option";
+			if (parameter != "") {
+				message = message + " -- '" + parameter + "'";
+			}
+			message += "\n";
+			console.log(message + "Try 'whatis --help' for more information.");
+		} else {
+			console.log(parameter + ": nothing appropriate");
 		}
-		message += "\n";
-		console.log(message + "Try 'whatis --help' for more information.");
 		break;
 	default:
 		console.log("-fbcli: " + command + ": command not found");
@@ -55,13 +59,20 @@ function whatis(command) {
 		console.log("whatis what?");
 		break;
 	default:
-		console.log(command + ": nothing appropriate");
+		help("whatis", command);
 	return;
 }
 
 function print_news_feed() {
 	window.alert("News Feed");
 	return;
+}
+
+function ls(args) {
+	if (args == "") {
+		print_news_feed();
+	} else {
+		error("ls", args);
 }
 
 function print_friends() {
@@ -77,7 +88,7 @@ function parse_input(input) {
 		break;
 	case 1:
 		if (input_arr[0] == "ls") {
-			print_news_feed();
+			ls("");
 		} else if (input_arr[0] == "whatis") {
 			whatis("");
 		} else if (input_arr[0] == "whoami") {
@@ -88,7 +99,7 @@ function parse_input(input) {
 		break;
 	case 2:
 		if (input_arr[0] == "ls") {
-			error(input_arr[0],input_arr[1]);
+			ls(input_arr[1]);
 		} else if (input_arr[0] == "whatis") {
 			whatis(input_arr[1]);
 		} else {
@@ -96,7 +107,15 @@ function parse_input(input) {
 		}
 		break;
 	default:
-		error(input_arr[0], "");
+		if (input_arr[0] == "ls") {
+			ls(input_arr[1]);
+		} else if (input_arr[0] == "whatis") {
+			for (i = 1; i < input_arr_len; i++) {
+				whatis(input_arr[i]);
+			}
+		} else {
+			error(input_arr[0], "");
+		}
 	}
 	return;
 }
