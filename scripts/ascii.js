@@ -52,7 +52,7 @@ function asciifyImage(oImg, oCanvasImg)
 				}
 
 				var strThisChar = aCharList[iCharIdx];
-				console.log(strThisChar);
+				//console.log(strThisChar);
 				if (strThisChar == " ") 
 					strThisChar = "&nbsp;";
 
@@ -81,10 +81,10 @@ function asciifyImage(oImg, oCanvasImg)
 		var oCanvasImg = new Image();
 		oCanvasImg.src = oImg.src;
 		if (oCanvasImg.complete) {
-			console.log('complete');
+			//console.log('complete');
 			return asciifyImage(oImg, oCanvasImg);
 		} else {
-			console.log('onload');
+			//console.log('onload');
 			oCanvasImg.onload = function() {
 				return asciifyImage(oImg, oCanvasImg)
 			}
