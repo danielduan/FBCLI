@@ -12,6 +12,8 @@ window.fbAsyncInit = function() {
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
       alert('connected');
+      testAPI();
+      document.getElementById('fb-logout').style.display = 'block';
     } 
     else if (response.status === 'not_authorized') {
       alert('not authorized');
@@ -19,7 +21,8 @@ window.fbAsyncInit = function() {
     } 
     else {
       alert('not logged on');
-      login();
+      //login();
+      //document.getElementById('fb-logout').style.display = 'block';
     }
    });
 };
@@ -42,12 +45,18 @@ function login() {
             // cancelled
         }
     });
-}
+};
+
+function logout() {
+    FB.logout(function(response) {
+        alert('User is now logged out');
+    });
+};
 
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
         console.log('Good to see you, ' + response.name + '.');
     });
-}
+};
 
