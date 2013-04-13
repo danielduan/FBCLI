@@ -400,9 +400,9 @@ function parse_input(input) {
 			return "Goodbye.";
 		} else if (input_arr[0] == "cd") {
 			return cd("");
-		} else if (input-arr[0] == "rm") {
+		} else if (input_arr[0] == "rm") {
 			return rm("");
-		} else if (input-arr[0] == "troll") {
+		} else if (input_arr[0] == "troll") {
 			window.open("http://bringvictory.com/");
 		} else {
 			return error(input_arr[0], "");
