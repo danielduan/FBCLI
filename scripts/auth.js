@@ -11,20 +11,18 @@ window.fbAsyncInit = function() {
   // Additional init code here
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
-      alert('connected');
-      testAPI();
-      document.getElementById('fb-logout').style.display = 'block';
-    } 
-    else if (response.status === 'not_authorized') {
-      alert('not authorized');
-      login();
-    } 
-    else {
-      alert('not logged on');
-      //login();
-      //document.getElementById('fb-logout').style.display = 'block';
+        // User logged into FB and authorized
+        testAPI();
+        document.getElementById('fb-logout').style.display = 'block';
+    } else if (response.status === 'not_authorized') {
+        // User logged into FB but not authorized
+        login();
+    } else {
+        // User not logged into FB
+        login();
+        document.getElementById('fb-logout').style.display = 'block';
     }
-   });
+  });
 };
 
 // Load the SDK Asynchronously
@@ -34,6 +32,7 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
+   console.log('sdkstart');
 }(document));
 
 function login() {
@@ -44,19 +43,20 @@ function login() {
         } else {
             // cancelled
         }
-    });
-};
+    },{scope: 'email,read_friendlists,read_stream,manage_notifications,publish_actions'});
+}
 
 function logout() {
     FB.logout(function(response) {
-        alert('User is now logged out');
+        console.log('User is now logged out');
     });
-};
+}
 
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
         console.log('Good to see you, ' + response.name + '.');
     });
-};
+}
+
 
