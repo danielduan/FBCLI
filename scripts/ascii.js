@@ -78,16 +78,19 @@ function asciifyImage(oImg, oCanvasImg)
 	function asciifyImageLoad(oImg)
 	{
 		var oCanvasImg = new Image();
+		oCanvasImg.onload = function() {
+			return asciifyImage(oImg, oCanvasImg);
+		}
 		oCanvasImg.src = oImg.src;
+		/*
 		if (oCanvasImg.complete) {
 			//console.log('complete');
 			return asciifyImage(oImg, oCanvasImg);
 		} else {
 			//console.log('onload');
-			oCanvasImg.onload = function() {
-				return asciifyImage(oImg, oCanvasImg)
-			}
+			
 		}
+		*/
 	}
 	
 	function asciifyImageURL(uid)
