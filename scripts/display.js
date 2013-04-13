@@ -2,7 +2,7 @@ function getUserInfo() {
 	FB.api('/me?fields=id,name,email,gender', function(response) {
 	  	var array = new Array();
 	  	array.push(response);
-	  	render(array);
+	  	return render(array);
 	});
 }
 
@@ -57,16 +57,16 @@ function getUserFriends(search) {
 }
 
 function render(array) {
-	var target = document.getElementById("consolation");
+	var temp;
 	for (var i=0;i<array.length;i++)
 	{
 		for (var property in array[i])
 		{
 			if (!property)
 				continue;
-			var string = "<p>" + array[i][property] + "</p>";
-			target.innerHTML += string;
+			temp += "<p>" + array[i][property] + "</p>";
 		}
-		target.innerHTML += "<br>";
+		temp += "<br>";
 	}
+	return temp;
 }
