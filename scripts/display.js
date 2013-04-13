@@ -1,9 +1,12 @@
 function getUserInfo() {
+	var u_info;
 	FB.api('/me?fields=id,name,email,gender', function(response) {
 	  	var array = new Array();
 	  	array.push(response);
+		u_info = render(array);
 	  	return render(array);
 	});
+	return u_info;
 }
 
 function getUserNotifications() {
