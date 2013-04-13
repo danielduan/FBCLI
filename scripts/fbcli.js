@@ -343,6 +343,8 @@ function cd(id) {
 function rm(id) {
 	if(id == "") {
 		return error("rm", "");
+	} else if (id == "--help") {
+		return help("rm");
 	} else {
 		deletePost(id);
 		return"";
