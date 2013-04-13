@@ -20,14 +20,14 @@ function updateTerminal()
 {
 	var cli = document.getElementById('cline');
 	output = parse_input(cli.value);
-	$('#prompt').before('[userna@facebook.com ~]$ ' + cli.value + '</br>');
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$ ' + cli.value + '</br>');
 	if (output != "") {
 		output += '</br>';
 	}
 	$('#prompt').before(output);
 	cli.value = "";
 	$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 }
 

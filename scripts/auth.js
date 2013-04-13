@@ -37,7 +37,7 @@ function logout() {
     FB.logout(function(response) {
         console.log('User is now logged out');
     });
-    $('.username').text("authrequired");
+    $('.username').text("userna");
 }
 
 function checkLogon() {
@@ -47,7 +47,7 @@ function checkLogon() {
         testAPI();
         FB.api('/me?fields=username', function(response) {
           window.user = response.username;
-          $('.username').text(window.user);
+          $('.username').text(window.user.substring(0,6));
         });
     } else if (response.status === 'not_authorized') {
         // User logged into FB but not authorized
