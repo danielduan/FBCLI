@@ -86,7 +86,7 @@ function asciifyImage(oImg, oCanvasImg)
 	function asciifyImageURL(uid)
 	{
 		var img = new Image();
-		var url = "img.php?url=http://graph.facebook.com/"+uid+"/picture";
+		var url = "/scripts/img.php?url=http://graph.facebook.com/"+uid+"/picture";
 		img.src = url;
 		return asciifyImageLoad(img);
 	}
