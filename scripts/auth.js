@@ -37,7 +37,8 @@ function logout() {
     FB.logout(function(response) {
         console.log('User is now logged out');
     });
-    $('.username').text("userna");
+    window.user = "userna";
+    $('.username').text(window.user);
 }
 
 function checkLogon() {
