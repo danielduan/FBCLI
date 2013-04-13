@@ -7,14 +7,6 @@ $("#cline").keyup(function(event){
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
-function initial() {
-	var cli = document.getElementById('cline');
-	prompt = "[" + "username"  + "@facebook.com ~]$ ";
-	$('#prompt').before(prompt);
-	cli.value = "";
-}
-
-initial();
 
 function updateTerminal()
 {
@@ -54,6 +46,7 @@ function error(command, parameter) {
 	case "whoami":
 		return "whoami: extra operand `" + parameter + "'<br>Try 'whoami --help' for more information.";
 		break;
+	case "echo":
 	default:
 		return "-fbcli: " + command + ": command not found";
 	}
@@ -70,6 +63,9 @@ function help(command) {
 		break;
 	case "whoami":
 		return whatis("whoami") + "<br>" + "Usage: whoami";
+		break;
+	case "echo":
+		return whatis("echo") + "<br>" + "Usage: echo STRING";
 		break;
 	default:
 		return error(command,"");
@@ -106,6 +102,8 @@ function whatis(command) {
 	case "--help":
 		return help("whatis");
 		break;
+	case "echo":
+		return "echo (1)\t\t- sets input text as new status";
 	default:
 		return error("whatis", command);
 	return "";
@@ -139,7 +137,8 @@ function echo(message) {
 	} else if (message[0] == "-") {
 		return error("echo", message);
 	} else {
-		return "The new status will be: " + message;
+		postStatus(message);
+		return "Your status has just been set to : " + message;
 	}
 	return "";
 }
@@ -156,6 +155,8 @@ function parse_input(input) {
 		} else if (input_arr[0] == "whoami") {
 			return whoami("");
 		} else if (input_arr[0] == "") {
+		} else if (input_arr[0] == "echo") {
+			return echo("");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -167,6 +168,8 @@ function parse_input(input) {
 			return whatis(input_arr[1]);
 		} else if (input_arr[0] == "whoami") {
 			return whoami(input_arr[1]);
+		} else if (input_arr[0] == "echo") {
+			return echo(input_arr[1]);
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -185,6 +188,9 @@ function parse_input(input) {
 			return output;
 		} else if (input_arr[0] == "whoami") {
 			return error(input_arr[0], input_arr[1] + input_arr[2]);
+		} else if (input_arr[0] == "echo") {
+			input_arr.splice(0,1);
+			return echo(input_arr.join(" "));
 		} else {
 			return error(input_arr[0], "");
 		}
