@@ -1,4 +1,6 @@
 /*
+ * Edited by DBOnline for Facebook SoCal Hackathon 2013
+ *
  * jsAscii 0.1
  * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
  * MIT License [http://www.nihilogic.dk/licenses/mit-license.txt]
