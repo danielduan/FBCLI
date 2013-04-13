@@ -4,9 +4,13 @@ function getUserInfo(uid) {
 	else
 		var id = uid;
 	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
+		imgString(response.id);
+		response.picstring=asciifyImageURL(response.id);
+		console.log(response.picstring);
 		var array = new Array();
 	  	array.push(response);
 	  	render(array);
+	  	array = new Array();
 	});
 }
 

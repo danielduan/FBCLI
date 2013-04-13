@@ -85,9 +85,18 @@ function asciifyImage(oImg, oCanvasImg)
 		}
 	}
 	
-	function asciifyImageURL(url)
+	function asciifyImageURL(uid)
 	{
 		var img = new Image();
+		var url = "scripts/"+uid+"_image.jpg";
 		img.src = url;
 		return asciifyImageLoad(img);
+	}
+
+	function imgString(uid) {
+		$.ajax({ url: '/fbcli/scripts/dlimg.php',
+	         data: {fid: uid},
+	         type: 'get',
+	         success: console.log("success")
+		});
 	}

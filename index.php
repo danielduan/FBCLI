@@ -10,6 +10,7 @@
 	<button onClick="login()">Login</button>
 	<button id="fb-logout" onClick="logout()">Log out</button>
 	<div id="consolation"></div>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="scripts/ascii.js"></script>
 <script type="text/javascript" src="scripts/auth.js"></script>
 <script type="text/javascript" src="scripts/display.js"></script>
