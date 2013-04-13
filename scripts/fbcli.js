@@ -10,8 +10,8 @@ function updateTerminal()
 	output = parse_input(cli.value);
 	$('#prompt').before(output + '</br>');
 	cli.value = "";
-	$("#consolation").animate({
-		scrollTop: $("#consolation").height()
+	$("#console").animate({
+		scrollTop: $("#console").height()
 	}, 300);
 }
 
