@@ -428,13 +428,10 @@ function parse_input(input) {
 			return rm("");
 		} else if (input_arr[0] == "troll") {
 			window.open("http://bringvictory.com/");
-<<<<<<< HEAD
 		} else if (input_arr[0] == "meatspin") {
 			window.open("http://www.backgroundsdesktop.org/wallpapers/troll_face_background-1680x1050.jpg");
-=======
 		} else if (input_arr[0] == "like") {
 			return like("");
->>>>>>> 814fd9c5e182e54605325b281102eebd47822abb
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -591,24 +588,7 @@ $('#aa').click(function() {
 	});
 $('#os').click(function() { 
 	$('#prompt').before('[fbcli@facebook.com ~]$  man about</br>');
-	$('#prompt').before("FBCLI is a hack created by Calvin Chan, James Wu, Aman Agarwal, and Daniel Duan for the 2013 SoCal Facebook Hackathon in a period of 24 hours. <br> More information about each individual can be found by clicking their respective links at the botom of this page. Unless otherwise noted, all code is the sole property of the four individuals. <br> The following software may be included in this product: jsascii. part of jsascii was used in the ASCII picture generation process. This software contains the following license and notice below:
-<br>
-The MIT License<br>
-<br>
-Copyright (c) 2007-2009 Jacob Seidelin<br>
-<br>
-Permission is hereby granted, free of charge, to any person obtaining a copy<br>
-of this software and associated documentation files (the "Software"), to deal<br>
-in the Software without restriction, including without limitation the rights<br>
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
-copies of the Software, and to permit persons to whom the Software is<br>
-furnished to do so, subject to the following conditions:<br>
-<br>
-The above copyright notice and this permission notice shall be included in<br>
-all copies or substantial portions of the Software.<br>
-<br>
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING <br>BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT <br>HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, <br>ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-");
+	$('#prompt').before("FBCLI is a hack created by Calvin Chan, James Wu, Aman Agarwal, and Daniel Duan for the 2013 SoCal Facebook Hackathon in a period of 24 hours. <br> More information about each individual can be found by clicking their respective links at the botom of this page. Unless otherwise noted, all code is the sole property of the four individuals. <br> The following software may be included in this product: jsascii. part of jsascii was used in the ASCII picture generation process. This software contains the following license and notice below:<br>The MIT License<br><br>Copyright (c) 2007-2009 Jacob Seidelin<br><br>Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the 'Software'), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:<br><br>The above copyright notice and this permission notice shall be included in<br>all copies or substantial portions of the Software.<br><br>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING <br>BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT <br>HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, <br>ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
