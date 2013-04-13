@@ -420,13 +420,10 @@ function parse_input(input) {
 			return man(temp);
 		} else if (input_arr[0] == "cd") {
 			return cd(input_arr[1]);
-<<<<<<< HEAD
 		} else if (input_arr[0] == "git" && input_arr[1] == "revert") {
 			window.open("http://www.thefacebook.us/");
-=======
 		} else if (input_arr[0] == "rm") {
 			return rm(input_arr[1]);
->>>>>>> e5d7b446e30a28fad6a3b37507dc644ee7becefa
 		} else {
 			return error(input_arr[0], "");
 		}
