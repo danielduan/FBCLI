@@ -60,11 +60,9 @@ function asciifyImage(oImg, oCanvasImg)
 				} else {
 					strChars += strThisChar;
 				}
-			strChars += "<br/>";
-			//console.log(strChars);
-			//strChars = "";
+			
 		}
-
+	strChars += "<br/>";
 }
 		// can't get a span or div to flow like an img element, but a table works?
 		//console.log(strChars);
@@ -94,7 +92,7 @@ function asciifyImage(oImg, oCanvasImg)
 	}
 
 	function imgString(uid) {
-		$.ajax({ url: '/fbcli/scripts/dlimg.php',
+		$.ajax({ url: 'scripts/dlimg.php',
 	         data: {fid: uid},
 	         type: 'get',
 	         success: console.log("success")
