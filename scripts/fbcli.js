@@ -13,10 +13,11 @@ function updateTerminal()
 	output = parse_input(cli.value);
 	$('#prompt').before(output + '</br>');
 	cli.value = "";
-	$("#console").animate({
+	/*$("#console").animate({
 		scrollTop: $("#console").height()
-	}, 300);
-}
+	}, 300);*/
+	var $t = $('#console');
+    $t.animate({"scrollTop": $('#console')[0].scrollHeight}, 100);}
 
 function error(command, parameter) {
 	switch(command) {
@@ -70,7 +71,8 @@ function whoami(args) {
 	if (args == "--help") {
 		return help("whoami");
 	} else if (args == "") {
-		return getUserInfo();
+		getUserInfo();
+		return "";
 	} else {
 		return error("whoami", args);
 	}
