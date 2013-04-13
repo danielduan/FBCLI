@@ -1,22 +1,26 @@
 function getUserInfo() {
 	FB.api('/me?fields=id,name,email,gender', function(response) {
-	  	var array = new Array();
+		var array = new Array();
 	  	array.push(response);
-	  	return render(array);
+	  	render(array);
 	});
 }
 
 function getUserNotifications() {
-	FB.api('me/notifications?include_read=true', function(response) {
+	FB.api('/me/notifications?include_read=true', function(response) {
 		var array = new Array();
-		array.push(response);
-		render(array);
+		for(var i=0;i<response.data.length;i++)
+		{
+			array.push(response.data[i])
+		}
+	  	render(array);
 	});
 }
 
 function getUserActivity(numberPosts, uid) {
 	FB.api('/me/posts?fields=id,status_type,created_time,story,message', { limit: numberPosts }, function(response) {
 		var array = new Array();
+		console.log(response);
 		for(var i=0;i<response.data.length;i++)
 		{
 			array.push(response.data[i])
@@ -57,16 +61,21 @@ function getUserFriends(search) {
 }
 
 function render(array) {
-	var temp;
+	var temp = '';
 	for (var i=0;i<array.length;i++)
 	{
 		for (var property in array[i])
 		{
-			if (!property)
+			if (!array[i][property])
+			{	
+				console.log(property)
 				continue;
+			}
 			temp += "<p>" + array[i][property] + "</p>";
+			console.log(array[i][property])
 		}
 		temp += "<br>";
 	}
-	return temp;
+	$('#prompt').before(temp);
+	return;
 }
