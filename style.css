@@ -77,6 +77,10 @@ body {
 	left: 7px;	
 }
 
+#lights:hover {
+	background-image: url('img/dotshover.png');
+}
+
 #topbar {
 	font-family: 'Lucida Grande', 'Arial', sans-serif;
 	text-shadow: 0px 1px #f1f1f1;

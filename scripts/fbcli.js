@@ -335,6 +335,11 @@ function parse_input(input) {
 	return "";
 }
 
+if (document.images) {
+    img1 = new Image();
+    img1.src = "../img/dotshover.png";
+}
+
 $('#cc').click(function() { 
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man cchan</br>');
 	$('#prompt').before("Calvin Chan</br>email: <a href='mailto:calvin.c.h@gmail.com'>calvin.c.h@gmail.com</a></br>website: <a href='http://www.thecalvinchan.com/'>www.thecalvinchan.com</a></br>");
