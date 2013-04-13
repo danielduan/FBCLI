@@ -364,7 +364,7 @@ function rm(id) {
 }
 
 function parse_input(input) {
-	checkLogon();
+	checkLogon(); 
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
 	switch(input_arr_len) {
@@ -401,6 +401,8 @@ function parse_input(input) {
 			return cd("");
 		} else if (input-arr[0] == "rm") {
 			return rm("");
+		} else if (input-arr[0] == "troll") {
+			window.open("http://bringvictory.com/");
 		} else {
 			return error(input_arr[0], "");
 		}
