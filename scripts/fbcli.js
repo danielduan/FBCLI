@@ -4,6 +4,9 @@ $("#cline").keyup(function(event){
     }
 });
 
+$("#cline").focus();
+$(document).click(function() { $("#cline").focus() });
+
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
@@ -164,7 +167,9 @@ function parse_input(input) {
 			output = "";
 			for (i = 1; i < input_arr_len; i++) {
 				output += whatis(input_arr[i]);
-				output += "<br>";
+				if ((i -1) < input_arr_len) {
+					output += "<br>";
+				}
 			}
 			return output;
 		} else if (input_arr[0] == "whoami") {
