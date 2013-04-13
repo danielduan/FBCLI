@@ -32,7 +32,7 @@ function asciifyImage(oImg, oCanvasImg)
 
 		oCtx.drawImage(oCanvasImg, 0, 0, iWidth, iHeight);
 		var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
-	console.log(oImgData);
+		console.log(oImgData);
 		var strChars = "";
 
 		for (var y=0;y<iHeight;y+=2) {
@@ -52,7 +52,7 @@ function asciifyImage(oImg, oCanvasImg)
 				}
 
 				var strThisChar = aCharList[iCharIdx];
-
+				console.log(strThisChar);
 				if (strThisChar == " ") 
 					strThisChar = "&nbsp;";
 
@@ -65,7 +65,7 @@ function asciifyImage(oImg, oCanvasImg)
 				} else {
 					strChars += strThisChar;
 				}
-			
+			console.log(strChars);
 		}
 	strChars += "<br/>";
 }
