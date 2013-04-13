@@ -70,7 +70,7 @@ function asciifyImage(oImg, oCanvasImg)
 	strChars += "<br/>";
 }
 
-		console.log(strChars);
+		//console.log(strChars);
 		return strChars;
 }
 
