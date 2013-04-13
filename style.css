@@ -141,12 +141,8 @@ input {
 }
 
 pre {
-	color: #fff;
-	font-weight: 700;
 	font-family: 'Inconsolata', 'Courier', sans-serif !important;
 	font-size: 14px;
-	width: 200px;
-	margin: 0 auto;
 	margin-top: 10px;
 }
 
