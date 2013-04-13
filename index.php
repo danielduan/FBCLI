@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>FBCLI</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
 </head>
 <body>
 <div id="fb-root"></div>

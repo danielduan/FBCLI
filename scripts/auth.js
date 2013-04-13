@@ -32,7 +32,7 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
-   console.log('sdkstart');
+   window.permissions = "email,read_friendlists,user_status,friends_status,read_stream,manage_notifications,publish_actions";
 }(document));
 
 function login() {
@@ -43,7 +43,7 @@ function login() {
         } else {
             // cancelled
         }
-    },{scope: 'email,read_friendlists,read_stream,manage_notifications,publish_actions'});
+    },{scope: permissions});
 }
 
 function logout() {
