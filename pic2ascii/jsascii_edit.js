@@ -14,6 +14,15 @@ var jsAscii = (function() {
 	// convert img element to ascii
 	function asciifyImage(oImg, oCanvasImg) 
 	{
+		var oCanvas = document.createElement("canvas");
+		if (!oCanvas.getContext) {
+			return;
+		}
+		var oCtx = oCanvas.getContext("2d");
+		if (!oCtx.getImageData) {
+			return;
+		}
+		
 		var iScale = 5;
 		var strResolution = "high";
 		var aCharList = aDefaultCharList;
@@ -50,14 +59,14 @@ var jsAscii = (function() {
 
 					strChars += strThisChar;
 			}
-			strChars += "<br/>";
+			//strChars += "<br/>";
+			console.log(strChars);
+			strChars = "";
 		}
 
 
 		// can't get a span or div to flow like an img element, but a table works?
-		var oAscii = strChars;
-
-		oImg.parentNode.replaceChild(oAscii, oImg);
+		//console.log(strChars);
 
 	}
 
