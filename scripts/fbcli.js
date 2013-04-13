@@ -121,8 +121,6 @@ function parse_input(input) {
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
 	switch(input_arr_len) {
-	case 0:
-		break;
 	case 1:
 		if (input_arr[0] == "ls") {
 			ls("");
@@ -130,6 +128,7 @@ function parse_input(input) {
 			whatis("");
 		} else if (input_arr[0] == "whoami") {
 			whoami("");
+		} else if (input_arr[0] == "") {
 		} else {
 			error(input_arr[0], "");
 		}
@@ -147,7 +146,7 @@ function parse_input(input) {
 		break;
 	default:
 		if (input_arr[0] == "ls") {
-			ls(input_arr[1]);
+			ls(input_arr[1] + input_arr[2]);
 		} else if (input_arr[0] == "whatis") {
 			for (i = 1; i < input_arr_len; i++) {
 				whatis(input_arr[i]);
