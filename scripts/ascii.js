@@ -75,6 +75,7 @@ function asciifyImage(oImg, oCanvasImg)
 		var oCanvasImg = new Image();
 		oCanvasImg.src = oImg.src;
 		if (oCanvasImg.complete) {
+			console.log('complete');
 			return asciifyImage(oImg, oCanvasImg);
 		} else {
 			oCanvasImg.onload = function() {
