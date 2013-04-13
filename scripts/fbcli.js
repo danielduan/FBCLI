@@ -7,15 +7,28 @@ $("#cline").keyup(function(event){
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
+function initial() {
+	var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	var cli = document.getElementById('cline');
+	cli.value = "";
+}
+
+initial();
+
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
 	output = parse_input(cli.value);
-	$('#prompt').before(output + '</br>');
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$ ' + cli.value + '</br>');
+	if (output != "") {
+		output += '</br>';
+	}
+	$('#prompt').before(output);
 	cli.value = "";
-	$("#console").animate({
-		scrollTop: $("#console").height()
-	}, 300);
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
 }
 
 function error(command, parameter) {
@@ -43,6 +56,20 @@ function error(command, parameter) {
 	case "whoami":
 		return "whoami: extra operand `" + parameter + "'<br>Try 'whoami --help' for more information.";
 		break;
+	case "echo":
+		break;
+	case "find":
+		if (message == "") {
+			return "find: insufficient arguments </br> Try 'find --help' for more information.";
+		} else {
+			message = "find: invalid option";
+			message = message + " -- '" + parameter + "'";
+			message += "</br>";
+			return message + "Try 'find --help' for more information.";
+		}
+		break;
+	case "helper_help":
+		return "help: invalid option </br> Try 'help' for more information.";
 	default:
 		return "-fbcli: " + command + ": command not found";
 	}
@@ -52,13 +79,19 @@ function error(command, parameter) {
 function help(command) {
 	switch(command) {
 	case "ls":
-		return whatis("ls") + "<br>" + "Usage: ls";
+		return whatis("ls") + "<br>" + "Usage: ls [COUNT]";
 		break;
 	case "whatis":
 		return whatis("whatis") + "<br>" + "Usage: whatis KEYWORD";
 		break;
 	case "whoami":
 		return whatis("whoami") + "<br>" + "Usage: whoami";
+		break;
+	case "echo":
+		return whatis("echo") + "<br>" + "Usage: echo STRING";
+		break;
+	case "find":
+		return whatis("find") + "</br>" + "Usage: find SEARCH_STRING";
 		break;
 	default:
 		return error(command,"");
@@ -70,11 +103,17 @@ function whoami(args) {
 	if (args == "--help") {
 		return help("whoami");
 	} else if (args == "") {
-		return getUserInfo();
+		getUserInfo();
+		return "";
 	} else {
 		return error("whoami", args);
 	}
 	return "";
+}
+
+function helper_help() {
+	message = whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo");
+	return message +  "</br> Use the --help flag with any of those commands to learn more.";
 }
 
 function whatis(command) {
@@ -94,14 +133,19 @@ function whatis(command) {
 	case "--help":
 		return help("whatis");
 		break;
+	case "echo":
+		return "echo (1)\t\t- sets input text as new status";
+	case "find":
+		return "find (1)\t\t- search for friends based on query";
 	default:
 		return error("whatis", command);
 	return "";
 	}
 }
 
-function print_news_feed() {
-	return "News Feed";
+function print_news_feed(num) {
+	getUserWall(num);
+	return "";
 }
 
 function print_friends() {
@@ -110,9 +154,11 @@ function print_friends() {
 
 function ls(args) {
 	if (args == "") {
-		return print_news_feed();
+		return print_news_feed(6);
 	} else if (args == "--help") {
 		return help("ls");
+	} else if (parseInt(args) != NaN) {
+		return print_news_feed(parseInt(args));
 	} else {
 		return error("ls", args);
 	}
@@ -127,9 +173,23 @@ function echo(message) {
 	} else if (message[0] == "-") {
 		return error("echo", message);
 	} else {
-		return "The new status will be: " + message;
+		postStatus(message);
+		return "Your status has just been set to : " + message;
 	}
 	return "";
+}
+
+function find(search) {
+	if (search == --help) {
+		return help("find");
+	} else if (search == "") {
+		return error("find", "");
+	} else if (search[0] == "-") {
+		return error("find", search);
+	} else {
+		getUserFriends(search);
+		return "";
+	}
 }
 
 function parse_input(input) {
@@ -144,6 +204,12 @@ function parse_input(input) {
 		} else if (input_arr[0] == "whoami") {
 			return whoami("");
 		} else if (input_arr[0] == "") {
+		} else if (input_arr[0] == "echo") {
+			return echo("");
+		} else if (input_arr[0] == "find") {
+			return find("");
+		} else if (input_arr[0] == "help") {
+			return helper_help();
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -155,6 +221,12 @@ function parse_input(input) {
 			return whatis(input_arr[1]);
 		} else if (input_arr[0] == "whoami") {
 			return whoami(input_arr[1]);
+		} else if (input_arr[0] == "echo") {
+			return echo(input_arr[1]);
+		} else if (input_arr[0] == "find") {
+			return find(input_arr[1]);
+		} else if (input_arr[0] == "help") {
+			return error("help", "");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -173,6 +245,13 @@ function parse_input(input) {
 			return output;
 		} else if (input_arr[0] == "whoami") {
 			return error(input_arr[0], input_arr[1] + input_arr[2]);
+		} else if (input_arr[0] == "echo") {
+			input_arr.splice(0,1);
+			return echo(input_arr.join(" "));
+		} else if (input_arr[0] == "find") {
+			return find(input_arr[1]);
+		} else if (input_arr[0] == "help") {
+			return error("help", "");
 		} else {
 			return error(input_arr[0], "");
 		}

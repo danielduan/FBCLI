@@ -56,6 +56,16 @@ body {
 	margin: 0 auto;
 }
 
+#logo {
+	width: 146px;
+	height: 60px;
+	background-image: url('img/logo.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
 #lights {
 	background-image: url('img/dots.png');
 	background-size: 60px 15px;
@@ -111,6 +121,15 @@ body {
 	border-bottom-right-radius: 5px;
 }
 
+#console a, #console a:visited, #console a:active {
+	font-family: 'Inconsolata', 'Courier', sans-serif;
+	color: rgb(0,255,0);
+}
+
+#console a:hover {
+	text-decoration: underline;
+}
+
 #consolation {
 	height: 430px;
 }
@@ -119,7 +138,7 @@ body {
 	position: relative;
 	left: 0px;
 	bottom: 0px;
-	background-color: #000;
+	background-color: rgba(0,0,0,0);
 	border: none; 
 }
  
@@ -131,12 +150,8 @@ input {
 }
 
 pre {
-	color: #fff;
-	font-weight: 700;
 	font-family: 'Inconsolata', 'Courier', sans-serif !important;
 	font-size: 14px;
-	width: 200px;
-	margin: 0 auto;
 	margin-top: 10px;
 }
 
@@ -161,4 +176,18 @@ code {
 
 #tasukete span:hover {
 	opacity: 1;
+}
+
+#footer {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+#footer span {
+	color: rgba(255,255,255,0.5);
+	font-size: 17px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }

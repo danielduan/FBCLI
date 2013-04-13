@@ -11,15 +11,19 @@ function postStatus(content) {
 	});
 }
 
-function postFriend(id) {
+function postFriend(id,link) {
 	var temp = {
 		method: 'feed',
         to: id,
+	};
+	if (link)
+	{
+		temp.link = link;
 	}
 	FB.ui(temp, function(response) {
 	  	if (!response || response.error) 
 	  	{
-	    	alert('Error occured');
+	    	console.log('Error occured');
 	  	} 
 	  	else 
 	  	{

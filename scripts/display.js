@@ -1,25 +1,30 @@
-function getUserInfo() {
-	var u_info;
-	FB.api('/me?fields=id,name,email,gender', function(response) {
-	  	var array = new Array();
+function getUserInfo(uid) {
+	if (!uid)
+		var id = "me";
+	else
+		var id = uid;
+	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
+		var array = new Array();
 	  	array.push(response);
-		u_info = render(array);
-	  	return render(array);
+	  	render(array);
 	});
-	return u_info;
 }
 
 function getUserNotifications() {
-	FB.api('me/notifications?include_read=true', function(response) {
+	FB.api('/me/notifications?include_read=true', function(response) {
 		var array = new Array();
-		array.push(response);
-		render(array);
+		for(var i=0;i<response.data.length;i++)
+		{
+			array.push(response.data[i])
+		}
+	  	render(array);
 	});
 }
 
 function getUserActivity(numberPosts, uid) {
 	FB.api('/me/posts?fields=id,status_type,created_time,story,message', { limit: numberPosts }, function(response) {
 		var array = new Array();
+		console.log(response);
 		for(var i=0;i<response.data.length;i++)
 		{
 			array.push(response.data[i])
@@ -59,17 +64,38 @@ function getUserFriends(search) {
 	});
 }
 
+function getPostComments(id) {
+	FB.api('/'+id+'?fields=comments.fields(like_count,message,from.fields(name))', function(response) {
+		var array = new Array();
+		for(var i=0;i<response.comments.data.length;i++)
+		{
+			array.push(response.comments.data[i])
+		}
+	  	render(array);
+	});
+}
+
 function render(array) {
-	var temp;
+	var temp = '';
 	for (var i=0;i<array.length;i++)
 	{
+		temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
 		for (var property in array[i])
 		{
-			if (!property)
+			if (!array[i][property])
 				continue;
+			else if (typeof(array[i][property])=='object')
+			{	
+				for (var prop in array[i][property])
+				{
+					temp += "<p>" + array[i][property][prop] + "</p>";
+				}
+				continue;
+			}
 			temp += "<p>" + array[i][property] + "</p>";
+			console.log(array[i][property]);
 		}
-		temp += "<br>";
 	}
-	return temp;
+	temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
+	$('#prompt').before(temp);
 }
