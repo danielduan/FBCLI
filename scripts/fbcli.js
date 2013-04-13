@@ -1,3 +1,7 @@
+var stack = new Array();
+var stacknum = 0;
+var current = 0;
+
 $("#cline").keyup(function(event){
     if(event.keyCode == 13){
         updateTerminal();
@@ -20,6 +24,8 @@ initial();
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
+	stack[stacknum] = cli.value;
+	stacknum++;
 	output = parse_input(cli.value);
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$ ' + cli.value + '</br>');
 	if (output != "") {
