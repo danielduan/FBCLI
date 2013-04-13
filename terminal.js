@@ -4,6 +4,9 @@ $("#cline").keyup(function(event){
     }
 });
 
+$("#cline").focus();
+$(document).click(function() { $("#cline").focus() });
+
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
