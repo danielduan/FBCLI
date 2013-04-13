@@ -141,12 +141,8 @@ input {
 }
 
 pre {
-	color: #fff;
-	font-weight: 700;
 	font-family: 'Inconsolata', 'Courier', sans-serif !important;
 	font-size: 14px;
-	width: 200px;
-	margin: 0 auto;
 	margin-top: 10px;
 }
 
@@ -171,4 +167,18 @@ code {
 
 #tasukete span:hover {
 	opacity: 1;
+}
+
+#footer {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+#footer span {
+	color: rgba(255,255,255,0.5);
+	font-size: 17px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
