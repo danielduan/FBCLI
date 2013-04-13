@@ -80,6 +80,16 @@ function error(command, parameter) {
 	case "logout":
 		return "You are already logged out.";
 		break;
+	case "comment":
+		tryhelp = "Try 'comment --help' for more information.";
+		if (parameter == "") {
+			return "# (comment): insufficient arguments </br>" + tryhelp;
+		} else if (parameter == "id") {
+			return "# (comment): insufficient arguments </br>" + tryhelp;
+		} else if (parameter == "NaN") {
+			return "# (comment): id argument must be a number </br>" + tryhelp;
+		}
+		break;
 	case "man":
 		manhelp = "Try 'man --help' for more information";
 		if (parameter == "") {
@@ -107,6 +117,9 @@ function help(command) {
 		break;
 	case "echo":
 		return whatis("echo") + "</br>" + tabc + "Usage: echo STATUS_POST" + "</br>" + whatis("echo2") + "</br>" + tabc + "Usage: echo -u WALL_POST";
+		break;
+	case "comment":
+		return whatis("comment") + "</br>" + tabc + "Usage: # ID_POST MESSAGE_STRING";
 		break;
 	case "find":
 		return whatis("find") + "</br>" + tabc + "Usage: find SEARCH_STRING";
@@ -142,7 +155,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man");
+	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment");
 	return message;
 }
 
@@ -168,6 +181,9 @@ function whatis(command) {
 		break;
 	case "echo":
 		return "echo (1)- sets input text as new status";
+		break;
+	case "comment":
+		return "# (1) - comment on posts";
 		break;
 	case "echo2":
 		return "echo (2)- sets input text as wall post";
@@ -195,10 +211,6 @@ function print_news_feed(num) {
 	return "";
 }
 
-function print_friends() {
-	return "List o' friends";
-}
-
 function ls(args) {
 	if (args == "") {
 		return print_news_feed(6);
@@ -222,6 +234,7 @@ function echo(message) {
 	} else if (message[0] == "-u") {
 		postFriend(message[1]);
 	} else if (message.length == 1) {
+		console.log("ssssss");
 		postStatus(message[0]);
 	}
 	return "";
@@ -272,6 +285,19 @@ function wall(id) {
 	}
 }
 
+function comment(id, message) {
+	if (id == "") {
+		return error("comment", "");
+	} else if (id == "--help") {
+		return help("comment");
+	}
+	if (message == "") {
+		return error("comment", "id");
+	}
+	postComment(id, message);
+	return "";
+}
+
 function parse_input(input) {
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
@@ -298,6 +324,8 @@ function parse_input(input) {
 			return "=^..^=  meow";
 		} else if (input_arr[0] == "wall") {
 			return wall("");
+		} else if (input_arr[0] == "#") {
+			return comment("","");
 		} else if (input_arr[0] == "man") {
 			return man(new Array());
 		} else if (input_arr[0] == "exit") {
@@ -320,6 +348,8 @@ function parse_input(input) {
 			return echo(temp);
 		} else if (input_arr[0] == "find") {
 			return find(input_arr[1]);
+		} else if (input_arr[0] == "#") {
+			return comment(input_arr[1],"");
 		} else if (input_arr[0] == "help") {
 			return error("help", "");
 		} else if (input_arr[0] == "login") {
@@ -360,12 +390,31 @@ function parse_input(input) {
 		} else if (input_arr[0] == "whoami") {
 			return error(input_arr[0], input_arr[1] + input_arr[2]);
 		} else if (input_arr[0] == "echo") {
-			input_arr.splice(0,1);
-			return echo(input_arr.join(" "));
+			if (input_arr[1] == "-u") {
+				var temp = new Array();
+				temp.push(input_arr[1]);
+				temp.push(input_arr[2]);
+				return echo(temp);
+			} else {
+				var temp = new Array();
+				message = "";
+				for (i = 1; i < input_arr_len; i++) {
+					message += input_arr[i];
+					message += " ";
+				}
+				console.log(message);
+				temp.push(message);
+				return echo(temp);
+			}
 		} else if (input_arr[0] == "find") {
 			return find(input_arr[1]);
 		} else if (input_arr[0] == "help") {
 			return error("help", "");
+		} else if (input_arr[0] == "#") {
+			id = input_arr[1];
+			input_arr.splice(0,2);
+			message = input_arr.join(" ");
+			comment(id, message);				
 		} else if (input_arr[0] == "login") {
 			return "Invalid login";
 		} else if (input_arr[0] == "logout") {
