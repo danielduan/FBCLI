@@ -7,8 +7,7 @@ $("#cline").keyup(function(event){
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
-function initial() {
-	var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+function initial() { var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	var cli = document.getElementById('cline');
 	cli.value = "";
@@ -70,6 +69,13 @@ function error(command, parameter) {
 		break;
 	case "helper_help":
 		return "help: invalid option </br> Try 'help' for more information.";
+		break;
+	case "login":
+		return "You are already logged in.";
+		break;
+	case "logout":
+		return "You are already logged out.";
+		break;
 	default:
 		return "-fbcli: " + command + ": command not found";
 	}
@@ -93,6 +99,12 @@ function help(command) {
 	case "find":
 		return whatis("find") + "</br>" + "Usage: find SEARCH_STRING";
 		break;
+	case "login":
+		return whatis("login") + "</br>" + "Usage: login";
+		break;
+	case "logout":
+		return whatis("logout") + "</br>" + "Usage: logout";
+		break;
 	default:
 		return error(command,"");
 	}
@@ -112,7 +124,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo");
+	message = help("login") + "</br>" + whatis("logout") + "</br>" + whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo");
 	return message +  "</br> Use the --help flag with any of those commands to learn more.";
 }
 
@@ -135,8 +147,16 @@ function whatis(command) {
 		break;
 	case "echo":
 		return "echo (1)\t\t- sets input text as new status";
+		break;
 	case "find":
 		return "find (1)\t\t- search for friends based on query";
+		break;
+	case "login":
+		return "login (1)\t\t- connect to facebook, no GUI required";
+		break;
+	case "logout":
+		return "logout (1)\t\t- disconnect from facebook";
+		break;
 	default:
 		return error("whatis", command);
 	return "";
@@ -210,6 +230,14 @@ function parse_input(input) {
 			return find("");
 		} else if (input_arr[0] == "help") {
 			return helper_help();
+		} else if (input_arr[0] == "login") {
+			login();
+			return "Welcome to FBCLI";
+		} else if (input_arr[0] == "logout") {
+			logout();
+			return "Goodbye";
+		} else if (input_arr[0] == "cat") {
+			return "=^..^=  meow";
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -227,6 +255,10 @@ function parse_input(input) {
 			return find(input_arr[1]);
 		} else if (input_arr[0] == "help") {
 			return error("help", "");
+		} else if (input_arr[0] == "login") {
+			return "Invalid login";
+		} else if (input_arr[0] == "logout") {
+			return "Invalid logout";
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -252,9 +284,42 @@ function parse_input(input) {
 			return find(input_arr[1]);
 		} else if (input_arr[0] == "help") {
 			return error("help", "");
+		} else if (input_arr[0] == "login") {
+			return "Invalid login";
+		} else if (input_arr[0] == "logout") {
+			return "Invalid logout";
 		} else {
 			return error(input_arr[0], "");
 		}
 	}
 	return "";
 }
+
+$('#cc').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man cchan</br>');
+	$('#prompt').before("Calvin Chan</br>email: <a href='mailto:calvin.c.h@gmail.com'>calvin.c.h@gmail.com</a></br>website: <a href='http://www.thecalvinchan.com/'>www.thecalvinchan.com</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
+$('#jw').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man jwu</br>');
+	$('#prompt').before("James Wu</br>email: <a href='mailto:jwu@efunda.com'>jwu@efunda.com</a></br>website: <a href='http://wuzhonglin.bol.ucla.edu/'>wuzhonglin.bol.ucla.edu</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
+$('#dd').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man dduan</br>');
+	$('#prompt').before("Daniel Duan</br>email: <a href='mailto:danielduan88@yahoo.com'>danielduan88@yahoo.com</a></br>website: <a href='http://www.danielduan.net/'>www.danielduan.net</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
+$('#aa').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man aagarwal</br>');
+	$('#prompt').before("Aman Agarwal</br>email: <a href='mailto:amanaamazing@gmail.com'>aman.agarwal.2718@gmail.com</a></br>website: <a href='http://www.seas.ucla.edu/~aman/'>www.seas.ucla.edu/~aman</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
