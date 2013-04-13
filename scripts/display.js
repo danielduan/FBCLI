@@ -33,8 +33,11 @@ function getUserFriends(search) {
 		var array = new Array();
 		for (var i=0;i<response.friends.data.length;i++)
 		{
-			if (search && !(response.friends.data[i].first_name==search || response.friends.data[i].last_name==search || response.friends.data[i].name==search))
+			console.log("looping");
+			console.log(response.friends.data[i]);
+			if (search && response.friends.data[i].name.toLowerCase().indexOf(search.toLowerCase()) < 0)
 				continue;
+			console.log("looping2");
 			array.push(response.friends.data[i]);
 		}
 		render(array);
