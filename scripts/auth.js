@@ -43,19 +43,20 @@ function login() {
         } else {
             // cancelled
         }
-    });
-};
+    },{scope: 'email,read_friendlists,read_stream,manage_notifications,publish_actions'});
+}
 
 function logout() {
     FB.logout(function(response) {
         console.log('User is now logged out');
     });
-};
+}
 
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
         console.log('Good to see you, ' + response.name + '.');
     });
-};
+}
+
 
