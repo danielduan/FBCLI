@@ -14,7 +14,6 @@ function initial() { var prompt = "[userna@facebook.com ~]$ <input autofocus='au
 }
 
 initial();
-checkLogin();
 
 function updateTerminal()
 {
@@ -293,3 +292,32 @@ function parse_input(input) {
 	}
 	return "";
 }
+
+$('#cc').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man cchan</br>');
+	$('#prompt').before("Calvin Chan</br>email: <a href='mailto:calvin.c.h@gmail.com'>calvin.c.h@gmail.com</a></br>website: <a href='http://www.thecalvinchan.com/'>www.thecalvinchan.com</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
+$('#jw').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man jwu</br>');
+	$('#prompt').before("James Wu</br>email: <a href='mailto:jwu@efunda.com'>jwu@efunda.com</a></br>website: <a href='http://wuzhonglin.bol.ucla.edu/'>wuzhonglin.bol.ucla.edu</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
+$('#dd').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man dduan</br>');
+	$('#prompt').before("Daniel Duan</br>email: <a href='mailto:danielduan88@yahoo.com'>danielduan88@yahoo.com</a></br>website: <a href='http://www.danielduan.net/'>www.danielduan.net</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});
+$('#aa').click(function() { 
+	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man aagarwal</br>');
+	$('#prompt').before("Aman Agarwal</br>email: <a href='mailto:amanaamazing@gmail.com'>amanaamazing@gmail.com</a></br>");
+	$("#console").scrollTop($("#console")[0].scrollHeight);
+	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	});

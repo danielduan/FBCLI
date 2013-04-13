@@ -124,6 +124,7 @@ body {
 #console a, #console a:visited, #console a:active {
 	font-family: 'Inconsolata', 'Courier', sans-serif;
 	color: rgb(0,255,0);
+	text-decoration: none;
 }
 
 #console a:hover {
@@ -186,8 +187,14 @@ code {
 	width: 100%;
 }
 
-#footer span {
+#footer span, #footer a {
 	color: rgba(255,255,255,0.5);
 	font-size: 17px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	text-decoration: none;
+}
+
+#cc:hover, #jw:hover, #dd:hover, #aa:hover,#footer a:hover {
+	cursor: pointer;
+	color: rgba(255,255,255,1);
 }
