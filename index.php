@@ -32,7 +32,7 @@ To get started, type "login" and start hacking away.
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div id="footer">
     <span>Built by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> during the Facebook SoCal 2013 Hackathon.</span>
-    <span>FBCLI is created using <span id="os"open source technology</span>.</span>
+    <span>FBCLI is created using <span id="os">open source technology</span>.</span>
 </div>
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="scripts/ascii.js"></script>
