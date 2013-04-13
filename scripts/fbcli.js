@@ -292,6 +292,9 @@ function parse_input(input) {
 			return wall("");
 		} else if (input_arr[0] == "man") {
 			return man(new Array());
+		} else if (input_arr[0] == "exit") {
+			setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 2000);
+			return "Goodbye.";
 		} else {
 			return error(input_arr[0], "");
 		}
