@@ -1,4 +1,4 @@
-function help(command, error="") {
+function help(command, error) {
 	switch(command) {
 	case "ls":
 		message = "ls: invalid option";
@@ -34,7 +34,7 @@ function parse_input(input) {
 		if (input_arr[0] == "ls") {
 			print_news_feed();
 		} else {
-			help(input_arr[0]);
+			help(input_arr[0], "");
 		}
 		break;
 	case 2:
@@ -47,7 +47,7 @@ function parse_input(input) {
 				help(input_arr[0],input_arr[1]);
 			}
 		} else {
-			help(input_arr[0]);
+			help(input_arr[0], "");
 		}
 		break;
 	default:
