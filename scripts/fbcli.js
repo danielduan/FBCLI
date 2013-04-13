@@ -14,6 +14,15 @@ function help(command, error) {
 	return;
 }
 
+function whatis(command) {
+	switch(command) {
+	case "ls":
+		console.log("ls (1)\t\t- list news feed contents");
+		break;
+	default:
+	return;
+}
+
 function print_news_feed() {
 	window.alert("News Feed");
 	return;
@@ -33,6 +42,8 @@ function parse_input(input) {
 	case 1:
 		if (input_arr[0] == "ls") {
 			print_news_feed();
+		} else if (input_arr[0] == "whatis") {
+			whatis("");
 		} else {
 			help(input_arr[0], "");
 		}
@@ -46,6 +57,8 @@ function parse_input(input) {
 			} else {
 				help(input_arr[0],input_arr[1]);
 			}
+		} else if (input_arr[0] == "whatis") {
+			whatis(input_arr[1]);
 		} else {
 			help(input_arr[0], "");
 		}
