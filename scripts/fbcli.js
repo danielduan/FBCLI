@@ -5,6 +5,16 @@ var current = 0;
 $("#cline").keyup(function(event){
     if(event.keyCode == 13){
         updateTerminal();
+    } else if(event.keyCode == 38){ //up arrow
+    	if (current > 0) {
+    		current--;
+    		document.getElementById('cline').value = stack[current];
+    	}
+    } else if (event.keyCode == 40){
+    	if (current < stacknum - 1) {
+    		current++;
+    		document.getElementById('cline').value = stack[current];
+    	}
     }
 });
 
@@ -25,7 +35,9 @@ function updateTerminal()
 {
 	var cli = document.getElementById('cline');
 	stack[stacknum] = cli.value;
+	current = stacknum;
 	stacknum++;
+	console.log(stacknum);
 	output = parse_input(cli.value);
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$ ' + cli.value + '</br>');
 	if (output != "") {
