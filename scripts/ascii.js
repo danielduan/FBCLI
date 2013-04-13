@@ -21,7 +21,7 @@
                 var bColor = (oImg.getAttribute("asciicolor") == "true");
                 var bAlpha = (oImg.getAttribute("asciialpha") == "true");
                 var bBlock = (oImg.getAttribute("asciiblock") == "true");
-                var bInvert = (oImg.getAttribute("asciiinvert") == "true");
+                var bInvert = "true";
                 var strResolution = oImg.getAttribute("asciiresolution") || "medium";
                 var aCharList = oImg.getAttribute("asciichars") || 
                         (bColor ? aDefaultColorCharList : aDefaultCharList);
