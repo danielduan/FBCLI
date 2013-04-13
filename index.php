@@ -10,6 +10,6 @@
 	<button id="fb-logout" onclick="logout()">Log out</button>
 </form>
 <script type="text/javascript" src="scripts/auth.js"></script>
-<script type="text/javascript" src="javascript/test.js"></script>
+<script type="text/javascript" src="scripts/test.js"></script>
 </body>
 </html>
