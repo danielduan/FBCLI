@@ -9,7 +9,7 @@ window.fbAsyncInit = function() {
   });
 
   // Additional init code here
-  checkLogon();
+  //checkLogon();
 };
 
 // Load the SDK Asynchronously

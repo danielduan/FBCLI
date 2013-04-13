@@ -18,6 +18,10 @@
 | |_| '_ \ / __| | |
 |  _| |_) | (__| | |
 |_| |_.__/ \___|_|_|
+
+Welcome to fbcli, the command line interface for facebook. 
+To get started, type "login" to login to your account and 
+start hacking away.
 </pre>
 </br> 
 <span id="prompt">[<span class="username">userna</span>@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br></span>
