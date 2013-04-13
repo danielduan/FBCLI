@@ -26,9 +26,7 @@ function updateTerminal()
 	}
 	$('#prompt').before(output);
 	cli.value = "";
-	$("#console").animate({
-		scrollTop: $("#console").height()
-	}, 300);
+	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 }

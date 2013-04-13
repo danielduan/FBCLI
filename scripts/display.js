@@ -1,5 +1,9 @@
-function getUserInfo() {
-	FB.api('/me?fields=id,name,email,gender', function(response) {
+function getUserInfo(uid) {
+	if (!uid)
+		var id = "me";
+	else
+		var id = uid;
+	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
 		var array = new Array();
 	  	array.push(response);
 	  	render(array);
@@ -60,22 +64,38 @@ function getUserFriends(search) {
 	});
 }
 
+function getPostComments(id) {
+	FB.api('/'+id+'?fields=comments.fields(like_count,message,from.fields(name))', function(response) {
+		var array = new Array();
+		for(var i=0;i<response.comments.data.length;i++)
+		{
+			array.push(response.comments.data[i])
+		}
+	  	render(array);
+	});
+}
+
 function render(array) {
 	var temp = '';
 	for (var i=0;i<array.length;i++)
 	{
+		temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
 		for (var property in array[i])
 		{
 			if (!array[i][property])
+				continue;
+			else if (typeof(array[i][property])=='object')
 			{	
-				console.log(property)
+				for (var prop in array[i][property])
+				{
+					temp += "<p>" + array[i][property][prop] + "</p>";
+				}
 				continue;
 			}
 			temp += "<p>" + array[i][property] + "</p>";
-			console.log(array[i][property])
+			console.log(array[i][property]);
 		}
-		temp += "<br>";
 	}
+	temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
 	$('#prompt').before(temp);
-	return;
 }
