@@ -127,9 +127,16 @@ function error(command, parameter) {
 		break;
 	case "rm":
 		if (parameter == "") {
-			return "rm: insufficient arguments, required ITEM_ID. </br> Try 'rm --help' for more information.";
+			return "rm: insufficient arguments, requires ITEM_ID. </br> Try 'rm --help' for more information.";
 		} else {
 			return "rm: invalid argument: " + paramter + "</br> Try 'rm --help' for more information.";
+		}
+		break;
+	case "like":
+		if (parameter == "") {
+			return "like: insuffiecient arguments, requires ITEM_ID. </br> Try 'like --help' for more information.";
+		} else {
+			return "like: invalid argument: " + parameter + "</br> Try 'like --help' for more information.";d
 		}
 		break;
 	default:
@@ -174,7 +181,10 @@ function help(command) {
 		return whatis("cd") + "</br>" + tabc + "Usage: cd POST_ID";
 		break;
 	case "rm":
-		return whatis("rm") + "</br>" + tabc + "Usage: rm POST_ID";
+		return whatis("rm") + "</br>" + tabc + "Usage: rm ITEM_ID";
+		break;
+	case "like":
+		return whatis("like") + "</br>" + tabc + "Usage: like ITEM_ID";
 		break;
 	default:
 		return error(command,"");
@@ -195,7 +205,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment") + "</br>" + help("cd") + "</br>" + help("rm");
+	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment") + "</br>" + help("cd") + "</br>" + help("rm") + "</br>" + help("like");
 	return message;
 }
 
@@ -245,6 +255,9 @@ function whatis(command) {
 		break;
 	case "rm":
 		return "rm (1)- remove items such as posts and comments";
+		break;
+	case "like":
+		return "like (1)- like an item";
 		break;
 	default:
 		return error("whatis", command);
@@ -360,7 +373,18 @@ function rm(id) {
 		return help("rm");
 	} else {
 		deletePost(id);
-		return"";
+		return "";
+	}
+}
+
+function like(id) {
+	if (id == "") {
+		return error("like", id);
+	} else if (id == "--help") {
+		return help("like");
+	} else {
+		likePost(id);
+		return "";
 	}
 }
 
@@ -404,6 +428,8 @@ function parse_input(input) {
 			return rm("");
 		} else if (input_arr[0] == "troll") {
 			window.open("http://bringvictory.com/");
+		} else if (input_arr[0] == "like") {
+			return like("");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -441,6 +467,8 @@ function parse_input(input) {
 			window.open("http://www.thefacebook.us/");
 		} else if (input_arr[0] == "rm") {
 			return rm(input_arr[1]);
+		} else if (input_arr[0] == "like") {
+			return like(input_arr[1]);
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -510,6 +538,8 @@ function parse_input(input) {
 			return man(temp);
 		} else if (input_arr[0] == "cd") {
 			return error("cd", input_arr[2]);
+		} else if (input_arr[0] == "like") {
+			return error("like", input_arr[2]);
 		} else {
 			return error(input_arr[0], "");
 		}
