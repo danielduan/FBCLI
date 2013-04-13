@@ -69,8 +69,7 @@ function asciifyImage(oImg, oCanvasImg)
 		}
 	strChars += "<br/>";
 }
-		// can't get a span or div to flow like an img element, but a table works?
-		//console.log(strChars);
+
 		console.log(strChars);
 		return strChars;
 }
