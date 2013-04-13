@@ -9,10 +9,12 @@ function asciifyImage(oImg, oCanvasImg)
 	
 		var oCanvas = document.createElement("canvas");
 		if (!oCanvas.getContext) {
+			console.log('no context');
 			return;
 		}
 		var oCtx = oCanvas.getContext("2d");
 		if (!oCtx.getImageData) {
+			console.log('getImageData');
 			return;
 		}
 		
@@ -30,7 +32,7 @@ function asciifyImage(oImg, oCanvasImg)
 
 		oCtx.drawImage(oCanvasImg, 0, 0, iWidth, iHeight);
 		var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
-	
+	console.log(oImgData);
 		var strChars = "";
 
 		for (var y=0;y<iHeight;y+=2) {
