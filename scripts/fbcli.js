@@ -1,3 +1,22 @@
+$("#cline").keyup(function(event){
+    if(event.keyCode == 13){
+        updateTerminal();
+    }
+});
+
+function updateTerminal()
+{
+	var cli = document.getElementById('cline');
+	$('#prompt').before(cli.value + '</br>');
+
+	output = parse_input(cli.value);
+
+	cli.value = "";
+	$("#consolation").animate({
+		scrollTop: $("#consolation").height()
+	}, 300);
+}
+
 function error(command, parameter) {
 	switch(command) {
 	case "ls":
@@ -5,9 +24,9 @@ function error(command, parameter) {
 			message = "ls: invalid option";
 			message = message + " -- '" + parameter + "'";
 			message += "\n";
-			console.log(message + "Try 'ls --help' for more information.");
+			return message + "Try 'ls --help' for more information.";
 		} else {
-			console.log("ls: cannot access " + parameter + ": Not a valid option");
+			return "ls: cannot access " + parameter + ": Not a valid option";
 		}
 		break;
 	case "whatis":
@@ -15,148 +34,143 @@ function error(command, parameter) {
 			message = "whatis: invalid option";
 			message = message + " -- '" + parameter + "'";
 			message += "\n";
-			console.log(message + "Try 'whatis --help' for more information.");
+			return message + "Try 'whatis --help' for more information.";
 		} else {
-			console.log(parameter + ": nothing appropriate");
+			return parameter + ": nothing appropriate";
 		}
 		break;
 	case "whoami":
-		console.log("whoami: extra operand `" + parameter + "'\nTry 'whoami --help' for more information.");
+		return "whoami: extra operand `" + parameter + "'\nTry 'whoami --help' for more information.";
 		break;
 	default:
-		console.log("-fbcli: " + command + ": command not found");
+		return "-fbcli: " + command + ": command not found";
 	}
-	return;
+	return "";
 }
 
 function help(command) {
 	switch(command) {
 	case "ls":
-		whatis("ls");
-		console.log("Usage: ls");
+		return whatis("ls") + "\n" + "Usage: ls";
 		break;
 	case "whatis":
-		whatis("whatis");
-		console.log("Usage: whatis KEYWORD");
+		return whatis("whatis") + "\n" + "Usage: whatis KEYWORD";
 		break;
 	case "whoami":
-		whatis("whoami");
-		console.log("Usage: whoami");
+		return whatis("whoami") + "\n" + "Usage: whoami";
 		break;
 	default:
-		error(command,"");
+		return error(command,"");
 	}
-	return;
+	return "";
 }
 
 function whoami(args) {
 	if (args == "--help") {
-		help("whoami");
+		return help("whoami");
 	} else if (args == "") {
 		name = "name";
-		console.log(name);
+		return name;
 	} else {
-		error("whoami", args);
+		return error("whoami", args);
 	}
-	return;
+	return "";
 }
 
 function whatis(command) {
 	switch(command) {
 	case "ls":
-		console.log("ls (1)\t\t- list news feed contents");
+		return "ls (1)\t\t- list news feed contents";
 		break;
 	case "whatis":
-		console.log("whatis (1)\t\t- display manual page descriptions");
+		return "whatis (1)\t\t- display manual page descriptions";
 		break;
 	case "whoami":
-		console.log("whoami (1)\t\t- prints effective user id");
+		return "whoami (1)\t\t- prints effective user id";
 		break;
 	case "":
-		console.log("whatis what?");
+		return "whatis what?";
 		break;
 	case "--help":
-		help("whatis");
+		return help("whatis");
 		break;
 	default:
-		error("whatis", command);
-	return;
+		return error("whatis", command);
+	return "";
 	}
 }
 
 function print_news_feed() {
-	window.alert("News Feed");
-	return;
+	return "News Feed";
+}
+
+function print_friends() {
+	return "List o' friends";
 }
 
 function ls(args) {
 	if (args == "") {
-		print_news_feed();
+		return print_news_feed();
 	} else if (args == "--help") {
-		help("ls");
+		return help("ls");
 	} else {
-		error("ls", args);
+		return error("ls", args);
 	}
-}
-
-function print_friends() {
-	window.alert("List o' friends");
-	return;
+	return "";
 }
 
 function echo(message) {
 	if (message.length == 0) {
-		console.log("Invalid status");
+		return "Invalid status";
 	} else if (message == "--help") {
-		help("echo");
+		return help("echo");
 	} else if (message[0] == "-") {
-		error("echo", message);
+		return error("echo", message);
 	} else {
-		console.log("The new status will be: " + message);
+		return "The new status will be: " + message;
 	}
-	return;
+	return "";
 }
 
 function parse_input(input) {
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
 	switch(input_arr_len) {
-	case 0:
-		break;
 	case 1:
 		if (input_arr[0] == "ls") {
-			ls("");
+			return ls("");
 		} else if (input_arr[0] == "whatis") {
-			whatis("");
+			return whatis("");
 		} else if (input_arr[0] == "whoami") {
-			whoami("");
+			return whoami("");
+		} else if (input_arr[0] == "") {
 		} else {
-			error(input_arr[0], "");
+			return error(input_arr[0], "");
 		}
 		break;
 	case 2:
 		if (input_arr[0] == "ls") {
-			ls(input_arr[1]);
+			return ls(input_arr[1]);
 		} else if (input_arr[0] == "whatis") {
-			whatis(input_arr[1]);
+			return whatis(input_arr[1]);
 		} else if (input_arr[0] == "whoami") {
-			whoami(input_arr[1]);
+			return whoami(input_arr[1]);
 		} else {
-			error(input_arr[0], "");
+			return error(input_arr[0], "");
 		}
 		break;
 	default:
 		if (input_arr[0] == "ls") {
-			ls(input_arr[1]);
+			return ls(input_arr[1] + input_arr[2]);
 		} else if (input_arr[0] == "whatis") {
 			for (i = 1; i < input_arr_len; i++) {
-				whatis(input_arr[i]);
+				return whatis(input_arr[i]);
 			}
 		} else if (input_arr[0] == "whoami") {
-			error(input_arr[0], input_arr[1] + input_arr[2]);
+			return error(input_arr[0], input_arr[1] + input_arr[2]);
 		} else {
-			error(input_arr[0], "");
+			return error(input_arr[0], "");
 		}
 	}
-	return;
+	return "";
 }

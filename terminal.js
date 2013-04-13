@@ -4,13 +4,17 @@ $("#cline").keyup(function(event){
     }
 });
 
+$("#cline").focus();
+$(document).click(function() { $("#cline").focus() });
+
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
-    consolation.innerHTML += cli.value + "</br>";
+    $('#prompt').before(cli.value + '</br>');
     cli.value = "";
-    $("#consolation").animate({
-        scrollTop: $("#consolation").height()
+    $("#console").animate({
+        scrollTop: $("#console").height()
     }, 300);
 }
 
+ 
