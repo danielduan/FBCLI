@@ -4,6 +4,8 @@ function getUserInfo(uid) {
 	else
 		var id = uid;
 	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
+		response.picture = asciifyImageURL(response.id);
+		console.log(response);
 		var array = new Array();
 	  	array.push(response);
 	  	render(array);
