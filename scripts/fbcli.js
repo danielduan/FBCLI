@@ -45,9 +45,10 @@ function updateTerminal()
 	}
 	$('#prompt').before(output);
 	cli.value = "";
-	$("#console").scrollTop($("#console")[0].scrollHeight);
+	//$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
+	$("#console").scrollTop($("#console")[0].scrollHeight);
 }
 
 function error(command, parameter) {

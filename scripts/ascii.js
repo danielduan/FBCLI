@@ -146,6 +146,8 @@
                 oStyle.textDecoration = "none";
 
                 oImg.parentNode.replaceChild(oAscii, oImg);
+                $("#console").scrollTop($("#console")[0].scrollHeight);
+
 
         }
 
@@ -161,7 +163,7 @@
                                 asciifyImage(oImg, oCanvasImg)
                         }
                 }
-                console.log(oCanvasImg.src);
+                //console.log(oCanvasImg.src);
         }
 
 
