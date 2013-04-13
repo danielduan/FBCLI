@@ -1,5 +1,8 @@
 function asciifyImage(oImg, oCanvasImg) 
 	{
+		console.log('asciifyImage');
+		console.log(oImg);
+		console.log(oCanvasImg);
 		var aDefaultCharList = (" .,:;i1tfLCG08@").split("");
 		var aDefaultColorCharList = (" CGO08@").split("");
 		var strFont = "courier new";
@@ -78,6 +81,7 @@ function asciifyImage(oImg, oCanvasImg)
 			console.log('complete');
 			return asciifyImage(oImg, oCanvasImg);
 		} else {
+			console.log('onload');
 			oCanvasImg.onload = function() {
 				return asciifyImage(oImg, oCanvasImg)
 			}
