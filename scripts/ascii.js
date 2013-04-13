@@ -1,20 +1,20 @@
 function asciifyImage(oImg, oCanvasImg) 
 	{
-		console.log('asciifyImage');
-		console.log(oImg);
-		console.log(oCanvasImg);
+		//console.log('asciifyImage');
+		//console.log(oImg);
+		//console.log(oCanvasImg);
 		var aDefaultCharList = (" .,:;i1tfLCG08@").split("");
 		var aDefaultColorCharList = (" CGO08@").split("");
 		var strFont = "courier new";
 	
 		var oCanvas = document.createElement("canvas");
 		if (!oCanvas.getContext) {
-			console.log('no context');
+			//console.log('no context');
 			return;
 		}
 		var oCtx = oCanvas.getContext("2d");
 		if (!oCtx.getImageData) {
-			console.log('getImageData');
+			//console.log('getImageData');
 			return;
 		}
 		
@@ -32,7 +32,7 @@ function asciifyImage(oImg, oCanvasImg)
 
 		oCtx.drawImage(oCanvasImg, 0, 0, iWidth, iHeight);
 		var oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
-		console.log(oImgData);
+		//console.log(oImgData);
 		var strChars = "";
 
 		for (var y=0;y<iHeight;y+=2) {
@@ -65,12 +65,13 @@ function asciifyImage(oImg, oCanvasImg)
 				} else {
 					strChars += strThisChar;
 				}
-			console.log(strChars);
+			//console.log(strChars);
 		}
 	strChars += "<br/>";
 }
 		// can't get a span or div to flow like an img element, but a table works?
 		//console.log(strChars);
+		console.log(strChars);
 		return strChars;
 }
 
