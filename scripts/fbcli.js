@@ -316,7 +316,7 @@ $('#dd').click(function() {
 	});
 $('#aa').click(function() { 
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man aagarwal</br>');
-	$('#prompt').before("Aman Agarwal</br>email: <a href='mailto:amanaamazing@gmail.com'>amanaamazing@gmail.com</a></br>");
+	$('#prompt').before("Aman Agarwal</br>email: <a href='mailto:amanaamazing@gmail.com'>aman.agarwal.2718@gmail.com</a></br>website: <a href='http://www.seas.ucla.edu/~aman/'>www.seas.ucla.edu/~aman</a></br>");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
