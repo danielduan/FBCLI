@@ -4,16 +4,17 @@ $("#cline").keyup(function(event){
     }
 });
 
+$("#cline").focus();
+$(document).click(function() { $("#cline").focus() });
+
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
-	$('#prompt').before(cli.value + '</br>');
-
 	output = parse_input(cli.value);
-
+	$('#prompt').before(output + '</br>');
 	cli.value = "";
-	$("#consolation").animate({
-		scrollTop: $("#consolation").height()
+	$("#console").animate({
+		scrollTop: $("#console").height()
 	}, 300);
 }
 
@@ -23,7 +24,7 @@ function error(command, parameter) {
 		if (parameter[0] == "-") {
 			message = "ls: invalid option";
 			message = message + " -- '" + parameter + "'";
-			message += "\n";
+			message += "<br>";
 			return message + "Try 'ls --help' for more information.";
 		} else {
 			return "ls: cannot access " + parameter + ": Not a valid option";
@@ -33,14 +34,14 @@ function error(command, parameter) {
 		if (parameter[0] == "-") {
 			message = "whatis: invalid option";
 			message = message + " -- '" + parameter + "'";
-			message += "\n";
+			message += "<br>";
 			return message + "Try 'whatis --help' for more information.";
 		} else {
 			return parameter + ": nothing appropriate";
 		}
 		break;
 	case "whoami":
-		return "whoami: extra operand `" + parameter + "'\nTry 'whoami --help' for more information.";
+		return "whoami: extra operand `" + parameter + "'<br>Try 'whoami --help' for more information.";
 		break;
 	default:
 		return "-fbcli: " + command + ": command not found";
@@ -51,13 +52,13 @@ function error(command, parameter) {
 function help(command) {
 	switch(command) {
 	case "ls":
-		return whatis("ls") + "\n" + "Usage: ls";
+		return whatis("ls") + "<br>" + "Usage: ls";
 		break;
 	case "whatis":
-		return whatis("whatis") + "\n" + "Usage: whatis KEYWORD";
+		return whatis("whatis") + "<br>" + "Usage: whatis KEYWORD";
 		break;
 	case "whoami":
-		return whatis("whoami") + "\n" + "Usage: whoami";
+		return whatis("whoami") + "<br>" + "Usage: whoami";
 		break;
 	default:
 		return error(command,"");
@@ -163,9 +164,14 @@ function parse_input(input) {
 		if (input_arr[0] == "ls") {
 			return ls(input_arr[1] + input_arr[2]);
 		} else if (input_arr[0] == "whatis") {
+			output = "";
 			for (i = 1; i < input_arr_len; i++) {
-				return whatis(input_arr[i]);
+				output += whatis(input_arr[i]);
+				if ((i -1) < input_arr_len) {
+					output += "<br>";
+				}
 			}
+			return output;
 		} else if (input_arr[0] == "whoami") {
 			return error(input_arr[0], input_arr[1] + input_arr[2]);
 		} else {
