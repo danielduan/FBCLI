@@ -86,15 +86,8 @@ function asciifyImage(oImg, oCanvasImg)
 	function asciifyImageURL(uid)
 	{
 		var img = new Image();
-		var url = "scripts/"+uid+"_image.jpg";
+		var url = "scripts/img.php?url=http://graph.facebook.com/"+uid+"/picture";
 		img.src = url;
 		return asciifyImageLoad(img);
 	}
 
-	function imgString(uid) {
-		$.ajax({ url: 'scripts/dlimg.php',
-	         data: {fid: uid},
-	         type: 'get',
-	         success: console.log("success")
-		});
-	}
