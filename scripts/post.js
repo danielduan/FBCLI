@@ -6,7 +6,7 @@ function postStatus(content) {
 	  	} 
 	  	else 
 	  	{
-	    	console.log('New Post ID: ' + response.id);
+	    	$('#prompt').before('New Post ID: ' + response.id + '<br>');
 	  	}
 	});
 }
@@ -27,7 +27,20 @@ function postFriend(id,link) {
 	  	} 
 	  	else 
 	  	{
-	    	console.log('New Post ID: ' + response.post_id);
+	    	$('#prompt').before('New Post ID: ' + response.post_id + '<br>');
+	  	}
+	});
+}
+
+function postComment(id, content) {
+	FB.api('/'+id+"/comments", 'post', { message: content },  function(response) {
+	  	if (!response || response.error) 
+	  	{
+	    	alert('Error occured');
+	  	} 
+	  	else 
+	  	{
+	    	$('#prompt').before('New Comment ID: ' + response.id + '<br>');
 	  	}
 	});
 }
