@@ -1,16 +1,9 @@
 function getUserInfo() {
-	var u_info;
 	FB.api('/me?fields=id,name,email,gender', function(response) {
 		var array = new Array();
 	  	array.push(response);
-<<<<<<< HEAD
 	  	render(array);
-=======
-		u_info = render(array);
-	  	return render(array);
->>>>>>> 4420a2eb5b21de73aae0abf9c6d90527731ad623
 	});
-	return u_info;
 }
 
 function getUserNotifications() {
@@ -83,11 +76,6 @@ function render(array) {
 		}
 		temp += "<br>";
 	}
-<<<<<<< HEAD
 	$('#prompt').before(temp);
 	return;
 }
-=======
-	return temp;
-}
->>>>>>> 4420a2eb5b21de73aae0abf9c6d90527731ad623
