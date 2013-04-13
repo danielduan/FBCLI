@@ -64,9 +64,7 @@ var jsAscii = (function() {
 
 
 		// can't get a span or div to flow like an img element, but a table works?
-		var oAscii = strChars;
-
-		oImg.parentNode.replaceChild(oAscii, oImg);
+		console.log(strChars);
 
 	}
 
