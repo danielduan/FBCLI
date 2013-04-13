@@ -120,3 +120,9 @@ body {
 	background-color: #000;
 	border: none; 
 }
+
+input {
+	color: rgb(0,255,0);
+	font-family: 'Inconsolata', 'Courier', sans-serif !important;
+	font-size: 14px;
+}
