@@ -46,11 +46,13 @@ table {
 
 body {
 	background-color: #3b5998;
+	background-image: url('img/bg.jpg');
+	background-size: cover;
 	font-size: 14px;
 }
 
 .row {
-	width: 960px;
+	max-width: 960px;
 	margin: 0 auto;
 }
 
