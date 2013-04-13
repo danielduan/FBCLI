@@ -24,6 +24,9 @@ function error(command, parameter) {
 			console.log(parameter + ": nothing appropriate");
 		}
 		break;
+	case "whoami":
+		console.log("whoami: extra operand `" + parameter + "'\nTry 'whoami --help' for more information.");
+		break;
 	default:
 		console.log("-fbcli: " + command + ": command not found");
 	}
@@ -33,17 +36,30 @@ function error(command, parameter) {
 function help(command) {
 	switch(command) {
 	case "ls":
+		whatis("ls");
+		console.log("Usage: ls");
 		break;
 	case "whatis":
+		whatis("whatis");
+		console.log("Usage: whatis KEYWORD");
 		break;
+	case "whoami":
+		whatis("whoami");
+		console.log("Usage: whoami");
 	default:
 	}
 	return;
 }
 
-function whoami() {
-	name = "name";
-	console.log(name);
+function whoami(args) {
+	if (args == "--help") {
+		help("whoami");
+	} else if (args == "") {
+		name = "name";
+		console.log(name);
+	} else {
+		error("whoami", args);
+	}
 	return;
 }
 
@@ -55,11 +71,15 @@ function whatis(command) {
 	case "whatis":
 		console.log("whatis (1)\t\t- display manual page descriptions");
 		break;
+	case "whoami":
+		console.log("whoami (1)\t\t- prints effective user id");
 	case "":
 		console.log("whatis what?");
 		break;
+	case "--help":
+		help("whatis");
 	default:
-		help("whatis", command);
+		error("whatis", command);
 	return;
 }
 
@@ -80,6 +100,19 @@ function print_friends() {
 	return;
 }
 
+function echo(message) {
+	if (message.length == 0) {
+		console.log("Invalid status");
+	} else if (message == "--help") {
+		help("echo");
+	} else if (message[0] == "-") {
+		error("echo", message);
+	} else {
+		console.log("The new status will be: " + message);
+	}
+	return;
+}
+
 function parse_input(input) {
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
@@ -92,7 +125,7 @@ function parse_input(input) {
 		} else if (input_arr[0] == "whatis") {
 			whatis("");
 		} else if (input_arr[0] == "whoami") {
-			whoami();
+			whoami("");
 		} else {
 			error(input_arr[0], "");
 		}
@@ -102,6 +135,8 @@ function parse_input(input) {
 			ls(input_arr[1]);
 		} else if (input_arr[0] == "whatis") {
 			whatis(input_arr[1]);
+		} else if (input_arr[0] == "whoami") {
+			whoami(input_arr[1]);
 		} else {
 			error(input_arr[0], "");
 		}
@@ -113,6 +148,8 @@ function parse_input(input) {
 			for (i = 1; i < input_arr_len; i++) {
 				whatis(input_arr[i]);
 			}
+		} else if (input_arr[0] == "whoami") {
+			error(input_arr[0], input_arr[1] + input_arr[2]);
 		} else {
 			error(input_arr[0], "");
 		}
