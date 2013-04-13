@@ -236,6 +236,8 @@ function parse_input(input) {
 		} else if (input_arr[0] == "logout") {
 			logout();
 			return "Goodbye";
+		} else if (input_arr[0] == "cat") {
+			return "=^..^=  meow";
 		} else {
 			return error(input_arr[0], "");
 		}
