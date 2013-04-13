@@ -119,6 +119,7 @@ body {
 	margin: 0 auto;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+	box-shadow: 0px 10px 50px rgba(0,0,0,0.7);
 }
 
 #console a, #console a:visited, #console a:active {
