@@ -7,10 +7,8 @@ $("#cline").keyup(function(event){
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
-	$('#prompt').before(cli.value + '</br>');
-
 	output = parse_input(cli.value);
-
+	$('#prompt').before(output + '</br>');
 	cli.value = "";
 	$("#consolation").animate({
 		scrollTop: $("#consolation").height()
