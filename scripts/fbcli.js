@@ -4,6 +4,8 @@ $("#cline").keyup(function(event){
     }
 });
 
+var tabc = "\xA0\xA0\xA0\xA0";
+
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
@@ -95,31 +97,31 @@ function error(command, parameter) {
 function help(command) {
 	switch(command) {
 	case "ls":
-		return whatis("ls") + "<br>" + "Usage: ls [COUNT]";
+		return whatis("ls") + "</br>" + tabc + "Usage: ls [COUNT=6]";
 		break;
 	case "whatis":
-		return whatis("whatis") + "<br>" + "Usage: whatis KEYWORD";
+		return whatis("whatis") + "</br>" + tabc + "Usage: whatis KEYWORD";
 		break;
 	case "whoami":
-		return whatis("whoami") + "<br>" + "Usage: whoami";
+		return whatis("whoami") + "</br>" + tabc + "Usage: whoami";
 		break;
 	case "echo":
-		return whatis("echo") + "<br>" + "Usage: echo STRING";
+		return whatis("echo") + "</br>" + tabc + "Usage: echo STATUS_POST" + "</br>" + whatis("echo2") + "</br>" + tabc + "Usage: echo -u WALL_POST";
 		break;
 	case "find":
-		return whatis("find") + "</br>" + "Usage: find SEARCH_STRING";
+		return whatis("find") + "</br>" + tabc + "Usage: find SEARCH_STRING";
 		break;
 	case "wall":
-		return whatis("wall") + "</br>" + "Usage: wall [USER_ID]";
+		return whatis("wall") + "</br>" + tabc + "Usage: wall [USER_ID=me]";
 		break;
 	case "login":
-		return whatis("login") + "</br>" + "Usage: login";
+		return whatis("login") + "</br>" + tabc + "Usage: login";
 		break;
 	case "logout":
-		return whatis("logout") + "</br>" + "Usage: logout";
+		return whatis("logout") + "</br>" + tabc + "Usage: logout";
 		break;
 	case "man":
-		return whatis("man") + "</br>" + "Usage: man USER_ID";
+		return whatis("man") + "</br>" + tabc + "Usage: man USER_ID";
 		break;
 	default:
 		return error(command,"");
@@ -140,23 +142,23 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + whatis("logout") + "</br>" + whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo") + "</br>" + whatis("wall") + "</br>" + whatis("man");
-	return message +  "</br> Use the --help flag with any of those commands to learn more.";
+	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man");
+	return message;
 }
 
 function whatis(command) {
 	switch(command) {
 	case "ls":
-		return "ls (1)\t\t- list news feed contents";
+		return "ls (1)- list news feed contents";
 		break;
 	case "whatis":
-		return "whatis (1)\t\t- display manual page descriptions";
+		return "whatis (1)- display manual page descriptions";
 		break;
 	case "whoami":
-		return "whoami (1)\t\t- prints effective user id";
+		return "whoami (1)- prints effective user id";
 		break;
 	case "wall":
-		return "wall(1)\t\t- view your own wall or the wall of another user";
+		return "wall(1)- view your own wall or the wall of another user";
 		break;
 	case "":
 		return "whatis what?";
@@ -165,19 +167,22 @@ function whatis(command) {
 		return help("whatis");
 		break;
 	case "echo":
-		return "echo (1)\t\t- sets input text as new status";
+		return "echo (1)- sets input text as new status";
+		break;
+	case "echo2":
+		return "echo (2)- sets input text as wall post";
 		break;
 	case "find":
-		return "find (1)\t\t- search for friends based on query";
+		return "find (1)- search for friends based on query";
 		break;
 	case "man":
-		return "man (1)\t\t- display information about your friends";
+		return "man (1)- display information about your friends";
 		break;
 	case "login":
-		return "login (1)\t\t- connect to facebook, no GUI required";
+		return "login (1)- connect to facebook, no GUI required";
 		break;
 	case "logout":
-		return "logout (1)\t\t- disconnect from facebook";
+		return "logout (1)- disconnect from facebook";
 		break;
 	default:
 		return error("whatis", command);
@@ -226,6 +231,9 @@ function man(string_id) {
 	if (string_id.length == 0) {
 		return error("man","");
 	} else if (string_id.length == 1) {
+		if (string_id[0] == "--help") {
+			return help("man");
+		}
 		intform = parseInt(string_id[0]);
 		if (intform != NaN) {
 			getUserInfo(intform);
