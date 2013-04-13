@@ -59,6 +59,14 @@ function error(command, parameter) {
 		break;
 	case "echo":
 		break;
+	case "cd":
+		cdhelp = "Try 'cd --help' for more information.";
+		if (parameter == "") {
+			return "cd: must include POST_ID." + "</br>" + cdhelp;
+		} else {
+			return "cd: extra operand `" + parameter + "</br>" + cdhelp;
+		}
+		break;
 	case "wall":
 		message = "wall: invalid argument </br> Try 'wall --help' for more information.";
 	case "find":
@@ -136,6 +144,9 @@ function help(command) {
 	case "man":
 		return whatis("man") + "</br>" + tabc + "Usage: man USER_ID";
 		break;
+	case "cd":
+		return whatis("cd") + "</br>" + tabc + "Usage: cd POST_ID";
+		break;
 	default:
 		return error(command,"");
 	}
@@ -155,7 +166,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment");
+	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment") + "</br>" + help("cd");
 	return message;
 }
 
@@ -199,6 +210,9 @@ function whatis(command) {
 		break;
 	case "logout":
 		return "logout (1)- disconnect from facebook";
+		break;
+	case "cd":
+		return "cd (1)- access connections to a post";
 		break;
 	default:
 		return error("whatis", command);
@@ -298,6 +312,15 @@ function comment(id, message) {
 	return "";
 }
 
+function cd(id) {
+	if(id == "") {
+		return error("cd","");
+	} else {
+		getPostComments(id);
+		return "";
+	}
+}
+
 function parse_input(input) {
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
@@ -331,6 +354,8 @@ function parse_input(input) {
 		} else if (input_arr[0] == "exit") {
 			setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 2000);
 			return "Goodbye.";
+		} else if (input_arr[0] == "cd") {
+			return cd("");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -362,6 +387,8 @@ function parse_input(input) {
 			var temp = new Array;
 			temp.push(input_arr[1]);
 			return man(temp);
+		} else if (input_arr[0] == "cd") {
+			return cd(input_arr[1]);
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -427,6 +454,8 @@ function parse_input(input) {
 				temp.push(input_arr[i]);
 			}
 			return man(temp);
+		} else if (input_arr[0] == "cd") {
+			return error("cd", input_arr[2]);
 		} else {
 			return error(input_arr[0], "");
 		}
