@@ -4,6 +4,7 @@ function getUserInfo(uid) {
 	else
 		var id = uid;
 	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
+		response.picture = '<img asciify="true" asciicolor="true" asciiresolution="high" asciiscale="7" src="scripts/img.php?url=http://graph.facebook.com/' + response.id + '/picture"/>';
 		var array = new Array();
 	  	array.push(response);
 	  	render(array);
@@ -98,4 +99,16 @@ function render(array) {
 	}
 	temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
 	$('#prompt').before(temp);
+
+	var aImg = document.getElementsByTagName("img");
+                var aImages = [];
+                for (var i=0;i<aImg.length;i++) {
+                        aImages[i] = aImg[i];
+                }
+
+                for (var i=0;i<aImages.length;i++) {
+                        if (aImages[i].getAttribute("asciify") == "true") {
+                                asciifyImageLoad(aImages[i]);
+                        }
+                }
 }

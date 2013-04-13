@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
-   window.permissions = "email,read_friendlists,user_status,friends_status,read_stream,manage_notifications,publish_actions";
+   window.permissions = "email,read_friendlists,user_status,user_likes,friends_status,read_stream,manage_notifications,publish_actions";
    window.user = "authrequired";
 }(document));
 
