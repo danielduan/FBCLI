@@ -3,7 +3,7 @@ function getUserInfo(uid) {
 		var id = "me";
 	else
 		var id = uid;
-	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
+	FB.api('/'+id+'?fields=id,name,birthday,email,gender,relationship_status,about', function(response) {
 		response.picture = '<img asciify="true" asciicolor="true" asciiresolution="high" asciiscale="7" src="scripts/img.php?url=http://graph.facebook.com/' + response.id + '/picture"/>';
 		var array = new Array();
 	  	array.push(response);
@@ -66,7 +66,8 @@ function getUserFriends(search) {
 }
 
 function getPostComments(id) {
-	FB.api('/'+id+'?fields=comments.fields(like_count,message,from.fields(name))', function(response) {
+	FB.api('/'+id+'?fields=comments.fields(id,like_count,message,from.fields(name))', function(response) {
+		console.log(response);
 		var array = new Array();
 		for(var i=0;i<response.comments.data.length;i++)
 		{

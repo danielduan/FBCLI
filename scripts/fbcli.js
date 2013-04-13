@@ -124,6 +124,13 @@ function error(command, parameter) {
 			return "man: invalid argument: " + parameter + "</br>" + manhelp;
 		}
 		break;
+	case "rm":
+		if (parameter == "") {
+			return "rm: insufficient arguments, required ITEM_ID. </br> Try 'rm --help' for more information.";
+		} else {
+			return "rm: invalid argument: " + paramter + "</br> Try 'rm --help' for more information.";
+		}
+		break;
 	default:
 		return "-fbcli: " + command + ": command not found";
 	}
@@ -165,6 +172,9 @@ function help(command) {
 	case "cd":
 		return whatis("cd") + "</br>" + tabc + "Usage: cd POST_ID";
 		break;
+	case "rm":
+		return whatis("rm") + "</br>" + tabc + "Usage: rm POST_ID";
+		break;
 	default:
 		return error(command,"");
 	}
@@ -184,7 +194,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment") + "</br>" + help("cd");
+	message = help("login") + "</br>" + help("logout") + "</br>" + help("ls") + "</br>" + help("whatis") + "</br>" + help("whoami") + "</br>" +  help("find") + "</br>" +  help("echo") + "</br>" + help("wall") + "</br>" + help("man") + "</br>" + help("comment") + "</br>" + help("cd") + "</br>" + help("rm");
 	return message;
 }
 
@@ -231,6 +241,9 @@ function whatis(command) {
 		break;
 	case "cd":
 		return "cd (1)- access connections to a post";
+		break;
+	case "rm":
+		return "rm (1)- remove items such as posts and comments";
 		break;
 	default:
 		return error("whatis", command);
@@ -332,14 +345,26 @@ function comment(id, message) {
 
 function cd(id) {
 	if(id == "") {
-		return error("cd","");
+		return error("cd", "");
 	} else {
 		getPostComments(id);
 		return "";
 	}
 }
 
+function rm(id) {
+	if(id == "") {
+		return error("rm", "");
+	} else if (id == "--help") {
+		return help("rm");
+	} else {
+		deletePost(id);
+		return"";
+	}
+}
+
 function parse_input(input) {
+	checkLogon();
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
 	switch(input_arr_len) {
@@ -374,6 +399,8 @@ function parse_input(input) {
 			return "Goodbye.";
 		} else if (input_arr[0] == "cd") {
 			return cd("");
+		} else if (input-arr[0] == "rm") {
+			return rm("");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -407,6 +434,10 @@ function parse_input(input) {
 			return man(temp);
 		} else if (input_arr[0] == "cd") {
 			return cd(input_arr[1]);
+		} else if (input_arr[0] == "git" && input_arr[1] == "revert") {
+			window.open("http://www.thefacebook.us/");
+		} else if (input_arr[0] == "rm") {
+			return rm(input_arr[1]);
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -434,6 +465,8 @@ function parse_input(input) {
 			return output;
 		} else if (input_arr[0] == "whoami") {
 			return error(input_arr[0], input_arr[1] + input_arr[2]);
+		} else if (input_arr[0] == "rm") {
+			return error("rm", input_arr[2]);
 		} else if (input_arr[0] == "echo") {
 			if (input_arr[1] == "-u") {
 				var temp = new Array();
