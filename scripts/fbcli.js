@@ -322,6 +322,7 @@ function cd(id) {
 }
 
 function parse_input(input) {
+	checkLogon();
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
 	switch(input_arr_len) {
@@ -389,6 +390,8 @@ function parse_input(input) {
 			return man(temp);
 		} else if (input_arr[0] == "cd") {
 			return cd(input_arr[1]);
+		} else if (input_arr[0] == "git" && input_arr[1] == "revert") {
+			window.open("http://www.thefacebook.us/");
 		} else {
 			return error(input_arr[0], "");
 		}
