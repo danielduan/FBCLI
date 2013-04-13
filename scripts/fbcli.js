@@ -3,9 +3,7 @@ function error(command, parameter) {
 	case "ls":
 		if (parameter[0] == "-") {
 			message = "ls: invalid option";
-			if (parameter != "") {
-				message = message + " -- '" + parameter + "'";
-			}
+			message = message + " -- '" + parameter + "'";
 			message += "\n";
 			console.log(message + "Try 'ls --help' for more information.");
 		} else {
@@ -15,9 +13,7 @@ function error(command, parameter) {
 	case "whatis":
 		if (parameter[0] == "-") {
 			message = "whatis: invalid option";
-			if (parameter != "") {
-				message = message + " -- '" + parameter + "'";
-			}
+			message = message + " -- '" + parameter + "'";
 			message += "\n";
 			console.log(message + "Try 'whatis --help' for more information.");
 		} else {
@@ -46,7 +42,9 @@ function help(command) {
 	case "whoami":
 		whatis("whoami");
 		console.log("Usage: whoami");
+		break;
 	default:
+		error(command,"");
 	}
 	return;
 }
@@ -73,14 +71,17 @@ function whatis(command) {
 		break;
 	case "whoami":
 		console.log("whoami (1)\t\t- prints effective user id");
+		break;
 	case "":
 		console.log("whatis what?");
 		break;
 	case "--help":
 		help("whatis");
+		break;
 	default:
 		error("whatis", command);
 	return;
+	}
 }
 
 function print_news_feed() {
@@ -91,8 +92,11 @@ function print_news_feed() {
 function ls(args) {
 	if (args == "") {
 		print_news_feed();
+	} else if (args == "--help") {
+		help("ls");
 	} else {
 		error("ls", args);
+	}
 }
 
 function print_friends() {
