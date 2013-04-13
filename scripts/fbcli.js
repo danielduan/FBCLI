@@ -68,6 +68,8 @@ function error(command, parameter) {
 			return message + "Try 'find --help' for more information.";
 		}
 		break;
+	case "helper_help":
+		return "help: invalid option </br> Try 'help' for more information.";
 	default:
 		return "-fbcli: " + command + ": command not found";
 	}
@@ -107,6 +109,11 @@ function whoami(args) {
 		return error("whoami", args);
 	}
 	return "";
+}
+
+function helper_help() {
+	message = whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo");
+	return message +  "</br> Use the --help flag with any of those commands to learn more.";
 }
 
 function whatis(command) {
@@ -201,6 +208,8 @@ function parse_input(input) {
 			return echo("");
 		} else if (input_arr[0] == "find") {
 			return find("");
+		} else if (input_arr[0] == "help") {
+			return helper_help();
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -216,6 +225,8 @@ function parse_input(input) {
 			return echo(input_arr[1]);
 		} else if (input_arr[0] == "find") {
 			return find(input_arr[1]);
+		} else if (input_arr[0] == "help") {
+			return error("help", "");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -239,6 +250,8 @@ function parse_input(input) {
 			return echo(input_arr.join(" "));
 		} else if (input_arr[0] == "find") {
 			return find(input_arr[1]);
+		} else if (input_arr[0] == "help") {
+			return error("help", "");
 		} else {
 			return error(input_arr[0], "");
 		}
