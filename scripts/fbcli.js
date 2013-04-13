@@ -7,6 +7,14 @@ $("#cline").keyup(function(event){
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
+function initial() {
+	var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
+	var cli = document.getElementById('cline');
+	cli.value = "";
+}
+
+initial();
 
 function updateTerminal()
 {
@@ -17,8 +25,8 @@ function updateTerminal()
 	$("#console").animate({
 		scrollTop: $("#console").height()
 	}, 300);
-	prompt = "[" + "username"  + "@facebook.com ~]$ ";
-	$('#prompt').before(prompt);
+	var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='70' name='cline' maxlength='100'></br>";
+	$('#prompt').innerHTML = prompt;
 }
 
 function error(command, parameter) {
