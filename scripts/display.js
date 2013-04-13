@@ -6,7 +6,15 @@ function getUserInfo() {
 	});
 }
 
-function getUserActivity(numberPosts) {
+function getUserNotifications() {
+	FB.api('me/notifications?include_read=true', function(response) {
+		var array = new Array();
+		array.push(response);
+		render(array);
+	});
+}
+
+function getUserActivity(numberPosts, uid) {
 	FB.api('/me/posts?fields=id,status_type,created_time,story,message', { limit: numberPosts }, function(response) {
 		var array = new Array();
 		for(var i=0;i<response.data.length;i++)
@@ -17,8 +25,12 @@ function getUserActivity(numberPosts) {
 	});
 }
 
-function getUserWall(numberPosts) {
-	FB.api('/me/feed?fields=id,status_type,created_time,story,message', { limit: numberPosts }, function(response) {
+function getUserWall(numberPosts, uid) {
+	if (!uid)
+		var id = "me";
+	else
+		var id = uid;
+	FB.api('/'+id+'/feed?fields=id,status_type,created_time,story,message', { limit: numberPosts }, function(response) {
 		var array = new Array();
 		for(var i=0;i<response.data.length;i++)
 		{
@@ -45,7 +57,7 @@ function getUserFriends(search) {
 }
 
 function render(array) {
-	var target = document.getElementById("console");
+	var target = document.getElementById("consolation");
 	for (var i=0;i<array.length;i++)
 	{
 		for (var property in array[i])

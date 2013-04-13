@@ -11,15 +11,19 @@ function postStatus(content) {
 	});
 }
 
-function postFriend(id,content) {
-	FB.api('/735548781/feed', 'post', { message: content }, function(response) {
+function postFriend(id) {
+	var temp = {
+		method: 'feed',
+        to: id,
+	}
+	FB.ui(temp, function(response) {
 	  	if (!response || response.error) 
 	  	{
 	    	alert('Error occured');
 	  	} 
 	  	else 
 	  	{
-	    	console.log('New Post ID: ' + response.id);
+	    	console.log('New Post ID: ' + response.post_id);
 	  	}
 	});
 }
