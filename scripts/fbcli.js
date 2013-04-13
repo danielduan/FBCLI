@@ -20,7 +20,11 @@ function updateTerminal()
 {
 	var cli = document.getElementById('cline');
 	output = parse_input(cli.value);
-	$('#prompt').before(output + '</br>');
+	$('#prompt').before('[userna@facebook.com ~]$ ' + cli.value + '</br>');
+	if (output != "") {
+		output += '</br>';
+	}
+	$('#prompt').before(output);
 	cli.value = "";
 	$("#console").animate({
 		scrollTop: $("#console").height()
@@ -119,7 +123,8 @@ function whatis(command) {
 }
 
 function print_news_feed() {
-	return "News Feed";
+	getUserWall(6);
+	return "";
 }
 
 function print_friends() {
