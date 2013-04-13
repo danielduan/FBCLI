@@ -14,6 +14,15 @@ var jsAscii = (function() {
 	// convert img element to ascii
 	function asciifyImage(oImg, oCanvasImg) 
 	{
+		var oCanvas = document.createElement("canvas");
+		if (!oCanvas.getContext) {
+			return;
+		}
+		var oCtx = oCanvas.getContext("2d");
+		if (!oCtx.getImageData) {
+			return;
+		}
+		
 		var iScale = 5;
 		var strResolution = "high";
 		var aCharList = aDefaultCharList;
