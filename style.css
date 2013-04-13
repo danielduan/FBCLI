@@ -74,7 +74,7 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	position: relative;
-	top: 50px;
+	top: 20px;
 	width: inherit;
 	background-image: url('img/bar.jpg');
 	background-repeat: repeat-x;
@@ -95,7 +95,7 @@ body {
 	font-family: 'Inconsolata', 'Courier', sans-serif;
 	color: rgb(0,255,0);
 	position: relative;
-	top: 50px;
+	top: 20px;
 	background-color: rgba(0,0,0,0.8);
 	width: 100%;
 	max-width: 700px;
@@ -126,4 +126,14 @@ input {
 	font-family: 'Inconsolata', 'Courier', sans-serif !important;
 	font-size: 14px;
 	outline: none;
+}
+
+pre {
+	color: #fff;
+	font-weight: 700;
+	font-family: 'Inconsolata', 'Courier', sans-serif !important;
+	font-size: 14px;
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
