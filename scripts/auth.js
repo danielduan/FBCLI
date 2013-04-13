@@ -19,8 +19,8 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
-   window.permissions = "email,read_friendlists,user_status,user_likes,friends_status,read_stream,manage_notifications,publish_actions";
-   window.user = "authrequired";
+   window.permissions = "email,read_friendlists,user_status,user_likes,user_relationships,user_about_me,user_birthday,friends_status,read_stream,manage_notifications,publish_actions";
+   window.user = "guest";
 }(document));
 
 function login() {
@@ -38,7 +38,7 @@ function logout() {
     FB.logout(function(response) {
         $('#prompt').before('User is now logged out<br>');
     });
-    window.user = "userna";
+    window.user = "guest";
     $('.username').text(window.user);
 }
 
