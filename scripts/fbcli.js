@@ -341,6 +341,7 @@ $('#cc').click(function() {
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
+	document.getElementById('cline').value = "";
 	});
 $('#jw').click(function() { 
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man jwu</br>');
@@ -348,6 +349,7 @@ $('#jw').click(function() {
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
+	document.getElementById('cline').value = "";
 	});
 $('#dd').click(function() { 
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man dduan</br>');
@@ -355,6 +357,7 @@ $('#dd').click(function() {
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
+	document.getElementById('cline').value = "";
 	});
 $('#aa').click(function() { 
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man aagarwal</br>');
@@ -362,4 +365,5 @@ $('#aa').click(function() {
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
+	document.getElementById('cline').value = "";
 	});
