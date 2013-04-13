@@ -70,8 +70,8 @@ function whoami(args) {
 	if (args == "--help") {
 		return help("whoami");
 	} else if (args == "") {
-		name = "name";
-		return name;
+		getUserInfo();
+		return "";
 	} else {
 		return error("whoami", args);
 	}
