@@ -121,6 +121,15 @@ body {
 	border-bottom-right-radius: 5px;
 }
 
+#console a, #console a:visited, #console a:active {
+	font-family: 'Inconsolata', 'Courier', sans-serif;
+	color: rgb(0,255,0);
+}
+
+#console a:hover {
+	text-decoration: underline;
+}
+
 #consolation {
 	height: 430px;
 }
