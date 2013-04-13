@@ -59,12 +59,14 @@ var jsAscii = (function() {
 
 					strChars += strThisChar;
 			}
-			strChars += "<br/>";
+			//strChars += "<br/>";
+			console.log(strChars);
+			strChars = "";
 		}
 
 
 		// can't get a span or div to flow like an img element, but a table works?
-		console.log(strChars);
+		//console.log(strChars);
 
 	}
 
