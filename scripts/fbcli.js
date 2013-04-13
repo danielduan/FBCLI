@@ -57,6 +57,8 @@ function error(command, parameter) {
 		break;
 	case "echo":
 		break;
+	case "wall":
+		message = "wall: invalid argument </br> Try 'wall --help' for more information.";
 	case "find":
 		if (message == "") {
 			return "find: insufficient arguments </br> Try 'find --help' for more information.";
@@ -99,6 +101,9 @@ function help(command) {
 	case "find":
 		return whatis("find") + "</br>" + "Usage: find SEARCH_STRING";
 		break;
+	case "wall":
+		return whatis("wall") + "</br>" + "Usage: wall [USER_ID]";
+		break;
 	case "login":
 		return whatis("login") + "</br>" + "Usage: login";
 		break;
@@ -124,7 +129,7 @@ function whoami(args) {
 }
 
 function helper_help() {
-	message = help("login") + "</br>" + whatis("logout") + "</br>" + whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo");
+	message = help("login") + "</br>" + whatis("logout") + "</br>" + whatis("ls") + "</br>" + whatis("whatis") + "</br>" + whatis("whoami") + "</br>" +  whatis("find") + "</br>" +  whatis("echo") + "</br>" + whatis("wall");
 	return message +  "</br> Use the --help flag with any of those commands to learn more.";
 }
 
@@ -138,6 +143,9 @@ function whatis(command) {
 		break;
 	case "whoami":
 		return "whoami (1)\t\t- prints effective user id";
+		break;
+	case "wall":
+		return "wall(1)\t\t- view your own wall or the wall of another user";
 		break;
 	case "":
 		return "whatis what?";
@@ -212,6 +220,21 @@ function find(search) {
 	}
 }
 
+function wall(id) {
+	if (id == "") {
+		getUserWall(15);
+		return "";
+	} else if (id == "--help") {
+		return help("wall");
+	} else {
+		num_id =  parseInt(id);
+		if (num_id != NaN) {
+			getUserWall(15, num_id);
+			return "";
+		}
+	}
+}
+
 function parse_input(input) {
 	input_arr = input.split(" ");
 	input_arr_len = input_arr.length;
@@ -238,6 +261,8 @@ function parse_input(input) {
 			return "Goodbye";
 		} else if (input_arr[0] == "cat") {
 			return "=^..^=  meow";
+		} else if (input_arr[0] == "wall") {
+			return wall("");
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -259,6 +284,8 @@ function parse_input(input) {
 			return "Invalid login";
 		} else if (input_arr[0] == "logout") {
 			return "Invalid logout";
+		} else if (input_arr[0] == "wall") {
+			return wall(input_arr[1]);
 		} else {
 			return error(input_arr[0], "");
 		}
@@ -288,6 +315,8 @@ function parse_input(input) {
 			return "Invalid login";
 		} else if (input_arr[0] == "logout") {
 			return "Invalid logout";
+		} else if (input_arr[0] == "wall") {
+			return error("wall", input_arr[1] + input_arr[2]);
 		} else {
 			return error(input_arr[0], "");
 		}
