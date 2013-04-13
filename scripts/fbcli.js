@@ -148,7 +148,7 @@ function error(command, parameter) {
 function help(command) {
 	switch(command) {
 	case "ls":
-		return whatis("ls") + "</br>" + tabc + "Usage: ls [COUNT=6]";
+		return whatis("ls") + "</br>" + tabc + "Usage: ls [COUNT=6]" + "</br>" + whatis("ls2") + "</br>" + tabc + "Usage: ls - u COUNT";
 		break;
 	case "whatis":
 		return whatis("whatis") + "</br>" + tabc + "Usage: whatis KEYWORD";
@@ -212,7 +212,10 @@ function helper_help() {
 function whatis(command) {
 	switch(command) {
 	case "ls":
-		return "ls (1)- list news feed contents";
+		return "ls (1)- list your own activity";
+		break;
+	case "ls2":
+		return "ls (2)- list activity of other users";
 		break;
 	case "whatis":
 		return "whatis (1)- display manual page descriptions";
