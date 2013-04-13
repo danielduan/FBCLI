@@ -172,3 +172,17 @@ code {
 #tasukete span:hover {
 	opacity: 1;
 }
+
+#footer {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+#footer span {
+	color: rgba(255,255,255,0.5);
+	font-size: 17px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
