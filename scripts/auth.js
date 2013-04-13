@@ -27,6 +27,7 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             checkLogon();
+            $('#prompt').before('User is now logged in<br>');
         } else {
             // cancelled
         }
@@ -35,7 +36,7 @@ function login() {
 
 function logout() {
     FB.logout(function(response) {
-        console.log('User is now logged out');
+        $('#prompt').before('User is now logged out<br>');
     });
     window.user = "userna";
     $('.username').text(window.user);

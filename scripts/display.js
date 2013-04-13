@@ -4,13 +4,9 @@ function getUserInfo(uid) {
 	else
 		var id = uid;
 	FB.api('/'+id+'?fields=id,name,email,gender', function(response) {
-		imgString(response.id);
-		response.picstring=asciifyImageURL(response.id);
-		console.log(response.picstring);
 		var array = new Array();
 	  	array.push(response);
 	  	render(array);
-	  	array = new Array();
 	});
 }
 
@@ -81,7 +77,7 @@ function getPostComments(id) {
 
 function render(array) {
 	var temp = '';
-	for (var i=0;i<array.length;i++)
+	for (var i=array.length-1;i>=0;i--)
 	{
 		temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
 		for (var property in array[i])

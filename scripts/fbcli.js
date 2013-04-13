@@ -185,6 +185,8 @@ function ls(args) {
 		return print_news_feed(6);
 	} else if (args == "--help") {
 		return help("ls");
+	} else if (args.substring(0,2) == "-u") {
+		getUserWall(10,args.substring(2));
 	} else if (parseInt(args) != NaN) {
 		return print_news_feed(parseInt(args));
 	} else {
@@ -196,13 +198,12 @@ function ls(args) {
 function echo(message) {
 	if (message.length == 0) {
 		return "Invalid status";
-	} else if (message == "--help") {
+	} else if (message[0] == "--help") {
 		return help("echo");
-	} else if (message[0] == "-") {
-		return error("echo", message);
-	} else {
-		postStatus(message);
-		return "Your status has just been set to : " + message;
+	} else if (message[0] == "-u") {
+		postFriend(message[1]);
+	} else if (message.length == 1) {
+		postStatus(message[0]);
 	}
 	return "";
 }
@@ -248,17 +249,15 @@ function parse_input(input) {
 			return whoami("");
 		} else if (input_arr[0] == "") {
 		} else if (input_arr[0] == "echo") {
-			return echo("");
+			return echo(new Array());
 		} else if (input_arr[0] == "find") {
 			return find("");
 		} else if (input_arr[0] == "help") {
 			return helper_help();
 		} else if (input_arr[0] == "login") {
 			login();
-			return "Welcome to FBCLI";
 		} else if (input_arr[0] == "logout") {
 			logout();
-			return "Goodbye";
 		} else if (input_arr[0] == "cat") {
 			return "=^..^=  meow";
 		} else if (input_arr[0] == "wall") {
@@ -275,7 +274,9 @@ function parse_input(input) {
 		} else if (input_arr[0] == "whoami") {
 			return whoami(input_arr[1]);
 		} else if (input_arr[0] == "echo") {
-			return echo(input_arr[1]);
+			var temp = new Array;
+			temp.push(input_arr[1]);
+			return echo(temp);
 		} else if (input_arr[0] == "find") {
 			return find(input_arr[1]);
 		} else if (input_arr[0] == "help") {
@@ -288,6 +289,16 @@ function parse_input(input) {
 			return wall(input_arr[1]);
 		} else {
 			return error(input_arr[0], "");
+		}
+		break;
+	case 3:
+		if (input_arr[0] == "ls" && input_arr[1] == "-u") {
+			return ls(input_arr[1]+" "+input_arr[2]);
+		} else if (input_arr[0] == "echo" && input_arr[1] == "-u") {
+			var temp = new Array();
+			temp.push(input_arr[1]);
+			temp.push(input_arr[2]);
+			return echo(temp);
 		}
 		break;
 	default:
