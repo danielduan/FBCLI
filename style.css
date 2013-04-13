@@ -56,6 +56,16 @@ body {
 	margin: 0 auto;
 }
 
+#logo {
+	width: 146px;
+	height: 60px;
+	background-image: url('img/logo.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
 #lights {
 	background-image: url('img/dots.png');
 	background-size: 60px 15px;
@@ -119,7 +129,7 @@ body {
 	position: relative;
 	left: 0px;
 	bottom: 0px;
-	background-color: #000;
+	background-color: rgba(0,0,0,0);
 	border: none; 
 }
  

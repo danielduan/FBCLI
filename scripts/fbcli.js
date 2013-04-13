@@ -7,6 +7,15 @@ $("#cline").keyup(function(event){
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
+function initial() {
+	var cli = document.getElementById('cline');
+	prompt = "[" + "username"  + "@facebook.com ~]$ ";
+	$('#prompt').before(prompt);
+	cli.value = "";
+}
+
+initial();
+
 function updateTerminal()
 {
 	var cli = document.getElementById('cline');
@@ -16,6 +25,8 @@ function updateTerminal()
 	$("#console").animate({
 		scrollTop: $("#console").height()
 	}, 300);
+	prompt = "[" + "username"  + "@facebook.com ~]$ ";
+	$('#prompt').before(prompt);
 }
 
 function error(command, parameter) {
