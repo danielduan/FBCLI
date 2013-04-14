@@ -32,8 +32,8 @@ To get started, type "login" and start hacking away.
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div id="footer">
-    <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> during the <a href="https://www.facebook.com/events/527470107303097/">Facebook SoCal 2013 Hackathon.</a></span>
-    <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI">here</a>.</span>
+    <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st during the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">Facebook SoCal 2013 Hackathon.</a></span>
+    <br><span id="source">FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>
 </div>
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="scripts/ascii.js"></script>
