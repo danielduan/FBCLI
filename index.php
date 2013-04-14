@@ -26,7 +26,8 @@ To get started, type "login" and start hacking away.
 </pre>
 &#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;
 </br> 
-<span id="prompt">[<span class="username">guest</span>@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br></span>
+<noscript>Please enable Javascript!</br><noscript>
+<span id="prompt">[<span class="username">guest</span>@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='68' name='cline' maxlength='100'></br></span>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
@@ -49,6 +50,18 @@ To get started, type "login" and start hacking away.
   ga('create', 'UA-40116455-1', 'herokuapp.com');
   ga('send', 'pageview');
 
-</script>
+  </script>
+
+	<script type="text/javascript">
+	var sc_project=8871206; 
+	var sc_invisible=1; 
+	var sc_security="e1b54627"; 
+	var scJsHost = (("https:" == document.location.protocol) ?
+	"https://secure." : "http://www.");
+	document.write("<sc"+"ript type='text/javascript' src='" +
+	scJsHost+
+	"statcounter.com/counter/counter.js'></"+"script>");
+	</script>
+
   </body>
 </html>
