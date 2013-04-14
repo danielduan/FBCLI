@@ -5,6 +5,7 @@
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
+    <link rel="image_src" href="http://media.clickonf5.org/image/logo.png" />
     <link rel="shortcut icon" href="img/favicon.ico"/>
   </head>
   <body>
@@ -21,9 +22,10 @@
 |  _| |_) | (__| | |
 |_| |_.__/ \___|_|_|
 
-Welcome to fbcli, the command line interface for Facebook. 
-To get started, type "login" and start hacking away.
 </pre>
+Welcome to fbcli, the command line interface for Facebook. </br>
+To get started, type "login" and start hacking away. </br>
+</br>
 &#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;
 </br> 
 <noscript>Please enable Javascript!</br></noscript>
