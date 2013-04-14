@@ -200,10 +200,6 @@ code {
 	text-decoration: none;
 }
 
-#source{
-	font-size: 8px;
-}
-
 #cc:hover, #os:hover, #jw:hover, #dd:hover, #aa:hover,#footer a:hover {
 	cursor: pointer;
 	color: rgba(255,255,255,1);
