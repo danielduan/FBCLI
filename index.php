@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"> 
+    <meta property="og:title" content="FBCLI" />
+    <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who hate GUI." />
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
-    <link rel="image_src" href="http://media.clickonf5.org/image/logo.png" />
+    <link rel="image_src" href="img/fbcli.png" />
     <link rel="shortcut icon" href="img/favicon.ico"/>
   </head>
   <body>
