@@ -12,6 +12,8 @@ window.fbAsyncInit = function() {
   //checkLogon();
 };
 
+window.user = "guest";
+
 // Load the SDK Asynchronously
 (function(d){
    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -44,7 +46,6 @@ function logout() {
 
 function checkLogon() {
   FB.getLoginStatus(function(response) {
-    window.user = "guest";
     if (response.status === 'connected') {
         // User logged into FB and authorized
         testAPI();
