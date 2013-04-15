@@ -45,7 +45,7 @@ To get started, type "login" and start hacking away. </br>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
-  <div class="row" id="social"><div class="fb-like" data-href="http://fbcli.herokuapp.com" data-send="true" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div></div>
+  <div class="row" id="social"><div class="fb-like" data-href="http://fbcli.herokuapp.com" data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark" data-font="trebuchet ms"></div></div>
   <div id="footer">
     <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st in the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">2013 Facebook SoCal Hackathon.</a></span>
     <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>

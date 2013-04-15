@@ -597,3 +597,4 @@ $('#os').click(function() {
 	$('#prompt').innerHTML = prompt;
 	document.getElementById('cline').value = "";
 	});
+
