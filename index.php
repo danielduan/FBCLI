@@ -4,7 +4,7 @@
     <meta charset="utf-8"> 
     <meta property="og:title" content="FBCLI" />
     <meta property="fb:app_id" content="443620105724613" />
-    <meta property="og:image" content="img/fbcli.png" /> 
+    <meta property="og:image" content="http://fbcli.herokuapp.com/img/fbcli.png" /> 
     <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who hate GUI." />
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
