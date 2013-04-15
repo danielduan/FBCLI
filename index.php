@@ -49,7 +49,6 @@ To get started, type "login" and start hacking away. </br>
   <script type="text/javascript" src="scripts/post.js"></script>
   <script type="text/javascript" src="scripts/fbcli.js"></script>
 
-<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
