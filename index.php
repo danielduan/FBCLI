@@ -40,7 +40,7 @@ To get started, type "login" and start hacking away. </br>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div class="row" id="social"><div class="fb-like" data-href="http://www.fbcli.net" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div></div>
   <div class="row" id="map">
-  <a href="http://www2.clustrmaps.com/user/5e210a124"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.fbcli.net-thumb.jpg" alt="Locations of visitors to this page" />
+  <a href="http://www2.clustrmaps.com/user/5e210a124"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.fbcli.net-thumb.jpg" width="80px" alt="Locations of visitors to this page" />
 </a>
   </div>
   <div id="footer">
