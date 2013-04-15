@@ -9,7 +9,6 @@
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
-    <link rel="image_src" href="img/fbcli.png" />
     <link rel="shortcut icon" href="img/favicon.ico"/>
   </head>
   <body>
