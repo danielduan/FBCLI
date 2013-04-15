@@ -5,7 +5,7 @@ window.fbAsyncInit = function() {
     channelUrl : '//fbcli.heroku.com/channel.html', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : false  // parse XFBML
+    xfbml      : true  // parse XFBML
   });
 
   // Additional init code here
