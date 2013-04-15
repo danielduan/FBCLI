@@ -39,6 +39,8 @@ To get started, type "login" and start hacking away. </br>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div class="row" id="social"><div class="fb-like" data-href="http://www.fbcli.net" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div></div>
+  <div class="row"><div id="clustrmaps-widget"></div><script type="text/javascript">var _clustrmaps = {'url' : 'http://www.fbcli.net', 'user' : 1089828, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-04-15', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5e210a124"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.fbcli.net-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>
+  </div>
   <div id="footer">
     <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st in the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">2013 Facebook SoCal Hackathon.</a></span>
     <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>
