@@ -23,7 +23,7 @@ var tabc = "\xA0\xA0\xA0\xA0";
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
 
-function initial() { var prompt = "[userna@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+function initial() { var prompt = "[guest@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	var cli = document.getElementById('cline');
 	cli.value = "";

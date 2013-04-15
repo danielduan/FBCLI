@@ -44,6 +44,7 @@ function logout() {
 
 function checkLogon() {
   FB.getLoginStatus(function(response) {
+    window.user = "guest";
     if (response.status === 'connected') {
         // User logged into FB and authorized
         testAPI();
