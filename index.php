@@ -36,16 +36,28 @@ To get started, type "login" and start hacking away. </br>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
+  <div class="row"><div class="fb-like" data-href="http://fbcli.herokuapp.com" data-send="true" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div></div>
   <div id="footer">
     <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st in the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">2013 Facebook SoCal Hackathon.</a></span>
     <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>
 </div>
+
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="scripts/ascii.js"></script>
   <script type="text/javascript" src="scripts/auth.js"></script>
   <script type="text/javascript" src="scripts/display.js"></script>
   <script type="text/javascript" src="scripts/post.js"></script>
   <script type="text/javascript" src="scripts/fbcli.js"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=443620105724613";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
