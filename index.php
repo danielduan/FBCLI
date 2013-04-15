@@ -7,7 +7,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://fbcli.herokuapp.com/" />
     <meta property="og:image" content="http://fbcli.herokuapp.com/img/fbcli.png" /> 
-    <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who hate GUI." />
+    <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who think GUI is too mainstream." />
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
