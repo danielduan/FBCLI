@@ -191,6 +191,11 @@ code {
 	top: 40px;
 }
 
+#map {
+	text-align: center;
+	position: relative;
+}
+
 .uiIconText {
 	color: #fff;
 }
