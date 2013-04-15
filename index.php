@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"> 
+    <meta property="og:title" content="FBCLI" />
+    <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who hate GUI." />
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
@@ -29,7 +31,7 @@ To get started, type "login" and start hacking away. </br>
 &#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;
 </br> 
 <noscript>Please enable Javascript!</br></noscript>
-<span id="prompt">[<span class="username">guest</span>@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='68' name='cline' maxlength='100'></br></span>
+<span id="prompt">[<span class="username">guest</span>@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br></span>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
