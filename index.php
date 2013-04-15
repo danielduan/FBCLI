@@ -5,7 +5,7 @@
     <meta property="og:title" content="FBCLI" />
     <meta property="fb:app_id" content="443620105724613" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.fbcli.herokuapp.com/" />
+    <meta property="og:url" content="http://fbcli.herokuapp.com/" />
     <meta property="og:image" content="http://fbcli.herokuapp.com/img/fbcli.png" /> 
     <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who hate GUI." />
     <title>FBCLI</title>
