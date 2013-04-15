@@ -4,6 +4,8 @@
     <meta charset="utf-8"> 
     <meta property="og:title" content="FBCLI" />
     <meta property="fb:app_id" content="443620105724613" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.fbcli.herokuapp.com/" />
     <meta property="og:image" content="http://fbcli.herokuapp.com/img/fbcli.png" /> 
     <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who hate GUI." />
     <title>FBCLI</title>
@@ -12,7 +14,6 @@
     <link rel="shortcut icon" href="img/favicon.ico"/>
   </head>
   <body>
-  <div class="fb-like" data-href="http://fbcli.herokuapp.com" data-send="true" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div>
   <div id="fb-root"></div>
   <div class="row" id="logo"></div>
   <div id="topbar"><div id="lights"></div><span><div style="display: inline;" class="username">guest</div> &mdash; fbcli &mdash; 100x33</span></div>
@@ -37,7 +38,7 @@ To get started, type "login" and start hacking away. </br>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
-  <div class="row"></div>
+  <div class="row"><div class="fb-like" data-href="http://fbcli.herokuapp.com" data-send="true" data-width="450" data-show-faces="true" data-font="trebuchet ms"></div></div>
   <div id="footer">
     <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st in the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">2013 Facebook SoCal Hackathon.</a></span>
     <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>
@@ -49,14 +50,6 @@ To get started, type "login" and start hacking away. </br>
   <script type="text/javascript" src="scripts/display.js"></script>
   <script type="text/javascript" src="scripts/post.js"></script>
   <script type="text/javascript" src="scripts/fbcli.js"></script>
-
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=443620105724613";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,6 +72,14 @@ To get started, type "login" and start hacking away. </br>
 	scJsHost+
 	"statcounter.com/counter/counter.js'></"+"script>");
 	</script>
+	
+	<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=443620105724613";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   </body>
 </html>
