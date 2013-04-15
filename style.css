@@ -185,6 +185,16 @@ code {
 	opacity: 1;
 }
 
+#social {
+	text-align: center;
+	position: relative;
+	top: 40px;
+}
+
+.uiIconText {
+	color: #fff;
+}
+
 #footer {
 	position: absolute;
 	bottom: 5px;
