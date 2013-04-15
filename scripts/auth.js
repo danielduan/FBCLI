@@ -12,7 +12,7 @@ window.fbAsyncInit = function() {
   //checkLogon();
 };
 
-window.user = "guest";
+//window.user = "guest";
 
 // Load the SDK Asynchronously
 (function(d){
