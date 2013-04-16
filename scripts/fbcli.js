@@ -1,6 +1,7 @@
 var stack = new Array();
 var stacknum = 0;
 var current = 0;
+var tabc = "\xA0\xA0\xA0\xA0";
 
 $("#cline").keyup(function(event){
     if(event.keyCode == 13){
@@ -11,14 +12,13 @@ $("#cline").keyup(function(event){
     		document.getElementById('cline').value = stack[current];
     	}
     } else if (event.keyCode == 40){
-    	if (current < stacknum - 1) {
+    	if (current < stacknum) {
     		current++;
     		document.getElementById('cline').value = stack[current];
     	}
     }
 });
 
-var tabc = "\xA0\xA0\xA0\xA0";
 
 $("#cline").focus();
 $(document).click(function() { $("#cline").focus() });
@@ -35,9 +35,9 @@ function updateTerminal()
 {
 	var cli = document.getElementById('cline');
 	stack[stacknum] = cli.value;
+	stack[stacknum+1] = "";
 	current = stacknum;
 	stacknum++;
-	console.log(stacknum);
 	output = parse_input(cli.value);
 	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$ ' + cli.value + '</br>');
 	if (output != "") {
