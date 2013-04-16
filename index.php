@@ -1,3 +1,3 @@
 <?php
-	header('Location: http://fbcli.net/');
+	header('Location: http://www.fbcli.net/');
 ?>
