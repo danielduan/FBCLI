@@ -5,8 +5,8 @@
     <meta property="og:title" content="FBCLI" />
     <meta property="fb:app_id" content="443620105724613" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://fbcli.herokuapp.com/" />
-    <meta property="og:image" content="http://fbcli.herokuapp.com/img/fbcli.png" /> 
+    <meta property="og:url" content="http://www.fbcli.net/" />
+    <meta property="og:image" content="http://www.fbcli.net/img/fbcli.png" /> 
     <meta name="description" property="og:description" content="The command line interface for Facebook, for those of us who think GUI is too mainstream." />
     <title>FBCLI</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -59,7 +59,7 @@ To get started, type "login" and start hacking away. </br>
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-40116455-1', 'herokuapp.com');
+  ga('create', 'UA-40116455-1', 'fbcli.net');
   ga('send', 'pageview');
 
   </script>
