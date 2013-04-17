@@ -39,8 +39,9 @@ To get started, type "login" and start hacking away. </br>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div class="row" id="social">
+  <div id="twitter">
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.fbcli.net" data-text="Check out this command line interface for Facebook!" data-hashtags="FBCLI" data-dnt="true">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
   <fb:like href="http://www.fbcli.net" send="true" layout="button_count" width="450" show_faces="false" font="trebuchet ms" colorscheme="dark"></fb:like>
   </div>
   <div id="footer">
