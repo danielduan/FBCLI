@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:fb="http://ogp.me/ns/fb#">
   <head>
     <meta charset="utf-8"> 
     <meta property="og:title" content="FBCLI" />
@@ -38,7 +38,14 @@ To get started, type "login" and start hacking away. </br>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
-  <div class="row" id="social" style="text-align:center"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fbcli.net&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;action=like&amp;height=21&amp;appId=443620105724613" scrolling="no" frameborder="0" style="display:block; border:none; overflow:hidden; margin-left: 425px; width:450px; height:21px;" allowTransparency="true"></iframe></div>
+  <div class="row" id="social" style="text-align:center">
+  <fb:like send="true" layout="button_count" width="450" show_faces="false" font="trebuchet ms" colorscheme="dark"></fb:like>
+  
+  <!--
+  <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fbcli.net&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;action=like&amp;height=21&amp;appId=443620105724613" scrolling="no" frameborder="0" style="display:block; border:none; overflow:hidden; margin-left: 425px; width:450px; height:21px;" allowTransparency="true"></iframe>
+  -->
+  
+  </div>
   <div id="footer">
     <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st in the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">2013 Facebook SoCal Hackathon.</a></span>
     <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>

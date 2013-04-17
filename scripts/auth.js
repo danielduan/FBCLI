@@ -8,11 +8,7 @@ window.fbAsyncInit = function() {
     xfbml      : true  // parse XFBML
   });
 
-  // Additional init code here
-  //checkLogon();
 };
-
-//window.user = "guest";
 
 // Load the SDK Asynchronously
 (function(d){
