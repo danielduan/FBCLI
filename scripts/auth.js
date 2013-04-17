@@ -24,8 +24,8 @@ window.fbAsyncInit = function() {
 function login() {
     FB.login(function(response) {
         if (response.authResponse) {
-            //checkLogon();
-            console.log("login");
+            //checkLogon(); <-- gonna shoot whoever put this cause its calling login twice
+            //console.log("login");
             $('#prompt').before('User is now logged in<br>');
         } else {
             // cancelled
@@ -45,8 +45,8 @@ function checkLogon() {
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
         // User logged into FB and authorized
-        testAPI();
-        console.log("check login status");
+        //testAPI();
+        //console.log("check login status");
         FB.api('/me?fields=username', function(response) {
           window.user = response.username;
           $('.username').text(window.user.substring(0,6));
