@@ -24,7 +24,7 @@ window.fbAsyncInit = function() {
 function login() {
     FB.login(function(response) {
         if (response.authResponse) {
-            checkLogon();
+            //checkLogon();
             console.log("login");
             $('#prompt').before('User is now logged in<br>');
         } else {
