@@ -39,11 +39,12 @@ To get started, type "login" and start hacking away. </br>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div class="row" id="social" style="text-align:center">
-  <fb:like send="true" layout="button_count" width="450" show_faces="false" font="trebuchet ms" colorscheme="dark"></fb:like>
+  <!--<fb:like send="true" layout="button_count" width="450" show_faces="false" font="trebuchet ms" colorscheme="dark"></fb:like>-->
   
-  <!--
-  <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fbcli.net&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;action=like&amp;height=21&amp;appId=443620105724613" scrolling="no" frameborder="0" style="display:block; border:none; overflow:hidden; margin-left: 425px; width:450px; height:21px;" allowTransparency="true"></iframe>
-  -->
+
+  <!--<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fbcli.net&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;action=like&amp;height=21&amp;appId=443620105724613" scrolling="no" frameborder="0" style="display:block; border:none; overflow:hidden; margin-left: 430px; width:450px; height:21px;" allowTransparency="true"></iframe>-->
+  
+  <div class="fb-like" data-href="http://www.fbcli.net" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="trebuchet ms" data-colorscheme="dark" data-action="recommend"></div>
   
   </div>
   <div id="footer">
