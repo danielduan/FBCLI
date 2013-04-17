@@ -2,7 +2,7 @@
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '443620105724613', // App ID
-    channelUrl : '/www.fbcli.net/channel.html', // Channel File
+    channelUrl : 'http://www.fbcli.net/channel.html', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -24,9 +24,8 @@ window.fbAsyncInit = function() {
 function login() {
     FB.login(function(response) {
         if (response.authResponse) {
-            //checkLogon(); <-- gonna shoot whoever put this cause its calling login twice
-            //console.log("login");
-            $('#prompt').before('User is now logged in<br>');
+            //checkLogon(); <-- gonna shoot whoever put this here cause its calling login twice
+            $('#prompt').before('You are now logged in. Type "whoami" to view your own profile.<br>');
         } else {
             // cancelled
         }
@@ -35,7 +34,7 @@ function login() {
 
 function logout() {
     FB.logout(function(response) {
-        $('#prompt').before('User is now logged out<br>');
+        $('#prompt').before('You are now logged out.<br>');
     });
     window.user = "guest";
     $('.username').text(window.user);
@@ -45,8 +44,6 @@ function checkLogon() {
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
         // User logged into FB and authorized
-        //testAPI();
-        //console.log("check login status");
         FB.api('/me?fields=username', function(response) {
           window.user = response.username;
           $('.username').text(window.user.substring(0,6));
