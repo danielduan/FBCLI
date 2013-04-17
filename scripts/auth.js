@@ -25,6 +25,7 @@ function login() {
     FB.login(function(response) {
         if (response.authResponse) {
             checkLogon();
+            console.log("login");
             $('#prompt').before('User is now logged in<br>');
         } else {
             // cancelled
@@ -45,6 +46,7 @@ function checkLogon() {
     if (response.status === 'connected') {
         // User logged into FB and authorized
         testAPI();
+        console.log("check login status");
         FB.api('/me?fields=username', function(response) {
           window.user = response.username;
           $('.username').text(window.user.substring(0,6));
