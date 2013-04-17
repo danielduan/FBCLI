@@ -39,7 +39,7 @@ To get started, type "login" and start hacking away. </br>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
   <div class="row" id="social">
-  <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fbcli.net&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;action=like&amp;height=35&amp;appId=443620105724613" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px; display:block" allowTransparency="true"></iframe>
+  <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fbcli.net&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;action=like&amp;height=35&amp;appId=443620105724613" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px; margin-left: 400px; display:block" allowTransparency="true"></iframe>
   <fb:send href="http://www.fbcli.net" colorscheme="dark" font="trebuchet ms"></fb:send>
   </div>
   <div id="footer">
