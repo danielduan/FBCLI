@@ -38,11 +38,14 @@ To get started, type "login" and start hacking away. </br>
 </div>
   </div>
   <div class="row" id="tasukete"><span>Stuck? Type <code>help</code> for a list of commands!</span></div>
-  <div class="row" id="social">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.fbcli.net" data-text="Check out this command line interface for Facebook!" data-hashtags="FBCLI" data-dnt="true">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <div class="row" id="facebook">
+  
   <div class="fb-like" data-href="http://www.fbcli.net" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="trebuchet ms" data-colorscheme="dark"></div>
   </div>
+  <div class="row" id="twitter">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.fbcli.net" data-text="Check out this command line interface for Facebook!" data-hashtags="FBCLI" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
   <div id="footer">
     <span>Coded in 24 hours by <span id="cc">Calvin Chan</span>, <span id="jw">James Wu</span>, <span id="dd">Daniel Duan</span>, and <span id="aa">Aman Agarwal</span> and placed 1st in the <a href="https://www.facebook.com/events/527470107303097/" target="_blank">2013 Facebook SoCal Hackathon.</a></span>
     <br><span>FBCLI is created using <span id="os">open source technology</span>. Source code is available <a href="https://github.com/danielduan/FBCLI" target="_blank">here</a>.</span>
