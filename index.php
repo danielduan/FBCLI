@@ -1,13 +1,3 @@
-/*
-<?php 
-$domain = $_SERVER["SERVER_NAME"];
-if (($domain == "fbcli.herokuapp.com" ||
-   $domain == "fbcli.net") && !$_GET['redirected'])  {
-	header("HTTP/1.1 301 Moved Permanently"); 
-	header("Location: http://www.fbcli.net"); 
-}
-*/
-
 <!DOCTYPE html>
 <html lang="en" xmlns:fb="http://ogp.me/ns/fb#">
   <head>
@@ -90,7 +80,3 @@ To get started, type "login" and start hacking away. </br>
   </body>
 </html>
 
-
-/*
-?>
-*/
