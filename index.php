@@ -1,6 +1,7 @@
+/*
 <?php 
 $domain = $_SERVER["SERVER_NAME"];
-/* if (($domain == "fbcli.herokuapp.com" ||
+if (($domain == "fbcli.herokuapp.com" ||
    $domain == "fbcli.net") && !$_GET['redirected'])  {
 	header("HTTP/1.1 301 Moved Permanently"); 
 	header("Location: http://www.fbcli.net"); 
@@ -90,4 +91,6 @@ To get started, type "login" and start hacking away. </br>
 </html>
 
 
+/*
 ?>
+*/
