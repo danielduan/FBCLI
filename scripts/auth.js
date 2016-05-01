@@ -17,7 +17,7 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
-   window.permissions = "email,read_friendlists,user_status,user_likes,user_relationships,user_about_me,user_birthday,friends_status,read_stream,manage_notifications,publish_actions";
+   window.permissions = "email,read_friendlists,user_status,user_likes,user_relationships,user_about_me,user_birthday,read_stream,manage_notifications,publish_actions";
    window.user = "guest";
 }(document));
 
@@ -46,7 +46,7 @@ function checkLogon() {
         // User logged into FB and authorized
         FB.api('/me?fields=username', function(response) {
           window.user = response.username;
-          $('.username').text(window.user.substring(0,6));
+          $('.username').text(window.user.substring(0,5));
         });
     } else if (response.status === 'not_authorized') {
         // User logged into FB but not authorized
@@ -64,5 +64,3 @@ function testAPI() {
         console.log('Good to see you, ' + response.name + '.');
     });
 }
-
-
