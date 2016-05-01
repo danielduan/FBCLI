@@ -1,10 +1,10 @@
 function postStatus(content) {
 	FB.api('/me/feed', 'post', { message: content }, function(response) {
-	  	if (!response || response.error) 
+	  	if (!response || response.error)
 	  	{
 	    	alert('Error occured');
-	  	} 
-	  	else 
+	  	}
+	  	else
 	  	{
 	    	$('#prompt').before('New Post ID: ' + response.id + '<br>');
 	  	}
@@ -21,11 +21,11 @@ function postFriend(id,link) {
 		temp.link = link;
 	}
 	FB.ui(temp, function(response) {
-	  	if (!response || response.error) 
+	  	if (!response || response.error)
 	  	{
-	    	console.log('Error occured');
-	  	} 
-	  	else 
+	    	// console.log('Error occured');
+	  	}
+	  	else
 	  	{
 	    	$('#prompt').before('New Post ID: ' + response.post_id + '<br>');
 	  	}
@@ -34,11 +34,11 @@ function postFriend(id,link) {
 
 function deletePost(id) {
 	FB.api('/'+id, 'delete', function(response) {
-	  	if (!response || response.error) 
+	  	if (!response || response.error)
 	  	{
 	    	alert('Error occured');
-	  	} 
-	  	else 
+	  	}
+	  	else
 	  	{
 	    	$('#prompt').before('ID:' + id + ' deleted!<br>');
 	  	}
@@ -47,11 +47,11 @@ function deletePost(id) {
 
 function postComment(id, content) {
 	FB.api('/'+id+"/comments", 'post', { message: content },  function(response) {
-	  	if (!response || response.error) 
+	  	if (!response || response.error)
 	  	{
 	    	alert('Error occured');
-	  	} 
-	  	else 
+	  	}
+	  	else
 	  	{
 	    	$('#prompt').before('New Comment ID: ' + response.id + '<br>');
 	  	}
@@ -60,11 +60,11 @@ function postComment(id, content) {
 
 function likePost(id) {
 	FB.api('/'+id+'/likes', 'post', function(response) {
-	  	if (!response || response.error) 
+	  	if (!response || response.error)
 	  	{
 	    	alert('Error occured');
-	  	} 
-	  	else 
+	  	}
+	  	else
 	  	{
 	    	$('#prompt').before('Comment ID:' + id + ' liked!<br>');
 	  	}
@@ -73,11 +73,11 @@ function likePost(id) {
 
 function unlikePost(id) {
 	FB.api('/'+id+'/likes', 'delete', function(response) {
-	  	if (!response || response.error) 
+	  	if (!response || response.error)
 	  	{
 	    	alert('Error occured');
-	  	} 
-	  	else 
+	  	}
+	  	else
 	  	{
 	    	$('#prompt').before('Comment ID:' + id + ' un-liked!<br>');
 	  	}

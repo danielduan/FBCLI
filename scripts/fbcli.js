@@ -296,7 +296,7 @@ function echo(message) {
 	} else if (message[0] == "-u") {
 		postFriend(message[1]);
 	} else if (message.length == 1) {
-		console.log("ssssss");
+		// console.log("ssssss");
 		postStatus(message[0]);
 	}
 	return "";
@@ -516,7 +516,7 @@ function parse_input(input) {
 					message += input_arr[i];
 					message += " ";
 				}
-				console.log(message);
+				// console.log(message);
 				temp.push(message);
 				return echo(temp);
 			}

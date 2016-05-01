@@ -25,7 +25,7 @@ function getUserNotifications() {
 function getUserActivity(numberPosts, uid) {
 	FB.api('/me/posts?fields=id,status_type,created_time,story,message', { limit: numberPosts }, function(response) {
 		var array = new Array();
-		console.log(response);
+		// console.log(response);
 		for(var i=0;i<response.data.length;i++)
 		{
 			array.push(response.data[i])
@@ -54,11 +54,11 @@ function getUserFriends(search) {
 		var array = new Array();
 		for (var i=0;i<response.friends.data.length;i++)
 		{
-			console.log("looping");
-			console.log(response.friends.data[i]);
+			// console.log("looping");
+			// console.log(response.friends.data[i]);
 			if (search && response.friends.data[i].name.toLowerCase().indexOf(search.toLowerCase()) < 0)
 				continue;
-			console.log("looping2");
+			// console.log("looping2");
 			array.push(response.friends.data[i]);
 		}
 		render(array);
@@ -67,7 +67,7 @@ function getUserFriends(search) {
 
 function getPostComments(id) {
 	FB.api('/'+id+'?fields=comments.fields(id,like_count,message,from.fields(name))', function(response) {
-		console.log(response);
+		// console.log(response);
 		var array = new Array();
 		for(var i=0;i<response.comments.data.length;i++)
 		{
@@ -87,7 +87,7 @@ function render(array) {
 			if (!array[i][property])
 				continue;
 			else if (typeof(array[i][property])=='object')
-			{	
+			{
 				for (var prop in array[i][property])
 				{
 					temp += "<p>" + array[i][property][prop] + "</p>";
@@ -95,7 +95,7 @@ function render(array) {
 				continue;
 			}
 			temp += "<p>" + array[i][property] + "</p>";
-			console.log(array[i][property]);
+			// console.log(array[i][property]);
 		}
 	}
 	temp += "<p>&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;&#126;</p>";
