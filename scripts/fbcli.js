@@ -39,14 +39,14 @@ function updateTerminal()
 	current = stacknum;
 	stacknum++;
 	output = parse_input(cli.value);
-	$('#prompt').before('['+window.user.substring(0,5)+'@facebook.com ~]$ ' + cli.value + '</br>');
+	$('#prompt').before('['+window.user.split(' ')[0].toLowerCase()+'@facebook.com ~]$ ' + cli.value + '</br>');
 	if (output != "") {
 		output += '</br>';
 	}
 	$('#prompt').before(output);
 	cli.value = "";
 	//$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.split(' ')[0].toLowerCase()+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	$("#console").scrollTop($("#console")[0].scrollHeight);
 }
@@ -558,34 +558,34 @@ if (document.images) {
 }
 
 $('#cc').click(function() {
-	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man cchan</br>');
+	$('#prompt').before('['+window.user.split(' ')[0].toLowerCase()+'@facebook.com ~]$  man cchan</br>');
 	$('#prompt').before("Calvin Chan</br>email: <a href='mailto:calvin.c.h@gmail.com'>calvin.c.h@gmail.com</a></br>website: <a href='http://www.thecalvinchan.com/'>www.thecalvinchan.com</a></br>");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.split(' ')[0].toLowerCase()+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	document.getElementById('cline').value = "";
 	});
 $('#jw').click(function() {
-	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man jwu</br>');
+	$('#prompt').before('['+window.user.split(' ')[0].toLowerCase()+'@facebook.com ~]$  man jwu</br>');
 	$('#prompt').before("James Wu</br>email: <a href='mailto:jwu@efunda.com'>jwu@efunda.com</a></br>website: <a href='http://wuzhonglin.bol.ucla.edu/'>wuzhonglin.bol.ucla.edu</a></br>");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.split(' ')[0].toLowerCase()+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	document.getElementById('cline').value = "";
 	});
 $('#dd').click(function() {
-	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man dduan</br>');
+	$('#prompt').before('['+window.user.split(' ')[0].toLowerCase()+'@facebook.com ~]$  man dduan</br>');
 	$('#prompt').before("Daniel Duan</br>email: <a href='mailto:danielduan88@yahoo.com'>danielduan88@yahoo.com</a></br>website: <a href='http://www.danielduan.net/'>www.danielduan.net</a></br>");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.split(' ')[0].toLowerCase()+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	document.getElementById('cline').value = "";
 	});
 $('#aa').click(function() {
-	$('#prompt').before('['+window.user.substring(0,6)+'@facebook.com ~]$  man aagarwal</br>');
+	$('#prompt').before('['+window.user.split(' ')[0].toLowerCase()+'@facebook.com ~]$  man aagarwal</br>');
 	$('#prompt').before("Aman Agarwal</br>email: <a href='mailto:amanaamazing@gmail.com'>aman.agarwal.2718@gmail.com</a></br>website: <a href='http://www.seas.ucla.edu/~aman/'>www.seas.ucla.edu/~aman</a></br>");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.split(' ')[0].toLowerCase()+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	document.getElementById('cline').value = "";
 	});
@@ -593,7 +593,7 @@ $('#os').click(function() {
 	$('#prompt').before('[fbcli@facebook.com ~]$  man about</br>');
 	$('#prompt').before("FBCLI is a hack created by Calvin Chan, James Wu, Aman Agarwal, and Daniel Duan for the 2013 SoCal Facebook Hackathon in a period of 24 hours. <br> More information about each individual can be found by clicking their respective links at the botom of this page. Unless otherwise noted, all code is the sole property of the four individuals.</br> <br> The following software may be included in this product: jsascii. part of jsascii was used in the ASCII picture generation process. This software contains the following license and notice below:<br><br>The MIT License<br><br>Copyright (c) 2007-2009 Jacob Seidelin<br><br>Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the 'Software'), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:<br><br>The above copyright notice and this permission notice shall be included in<br>all copies or substantial portions of the Software.<br><br>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING <br>BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT <br>HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, <br>ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</br>");
 	$("#console").scrollTop($("#console")[0].scrollHeight);
-	var prompt = "["+window.user.substring(0,6)+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
+	var prompt = "["+window.user.split(' ')[0].toLowerCase()+"@facebook.com ~]$ <input autofocus='autofocus' id='cline' type='text' size='65' name='cline' maxlength='100'></br>";
 	$('#prompt').innerHTML = prompt;
 	document.getElementById('cline').value = "";
 	});

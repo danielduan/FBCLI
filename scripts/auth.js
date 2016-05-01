@@ -44,9 +44,9 @@ function checkLogon() {
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
         // User logged into FB and authorized
-        FB.api('/me?fields=username', function(response) {
-          window.user = response.username;
-          $('.username').text(window.user.substring(0,5));
+        FB.api('/me', function(response) {
+          window.user = response.name;
+          $('.username').text(window.user.split(' ')[0].toLowerCase());
         });
     } else if (response.status === 'not_authorized') {
         // User logged into FB but not authorized
